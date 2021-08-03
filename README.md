@@ -2,7 +2,7 @@
 Customer attrition, or customer churn, is the percentage of customers that stop using a product within a given time frame. The first goal of this project is to identify important features that help determine if a customer will churn. The second goal of this project is to build a model that will predict if a customer will churn. 
 
 # Data
-The Telco Customer Churn dataset is utilized in this project and can be found [here](https://www.kaggle.com/blastchar/telco-customer-churn). This dataset contains 7,043 unique records with the following features:
+The Telco Customer Churn dataset is utilized in this project and can be found [here](https://www.kaggle.com/blastchar/telco-customer-churn). This dataset contains 7,043 unique records with 21 features:
 * Customer demographic features:
   * _customerID_
   * _gender_ - 'Male' or 'Female'
@@ -33,6 +33,8 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
   * _Churn_ - 'Yes' if customer left the company this quarter, 'No' if not
 
 # Data Preparation
+![Screen Shot 2021-08-03 at 6 35 30 PM](https://user-images.githubusercontent.com/71897317/128095002-74769773-53d8-41e2-a803-c027f236bdd8.png)
+
 
 # EDA
 
