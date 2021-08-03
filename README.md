@@ -11,10 +11,10 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
   * Dependents - 'Yes' if customer has dependents, 'No' if not
   
 * Service options features:
- * PhoneService - 'Yes' if a customer signed up for this option, 'No' if not
- * MultipleLines - 'Yes' if a customer signed up for this option, 'No' if not, 'No phone service' if not applicable
- * InternetService - 'DSL', 'Fiber optic', 'No' if not applicable
- * OnlineSecurity - 'Yes' if a customer signed up for this option, 'No' if not, 'No internet service' if not applicable
+  * PhoneService - 'Yes' if a customer signed up for this option, 'No' if not
+  * MultipleLines - 'Yes' if a customer signed up for this option, 'No' if not, 'No phone service' if not applicable
+  * InternetService - 'DSL', 'Fiber optic', 'No' if not applicable
+  * OnlineSecurity - 'Yes' if a customer signed up for this option, 'No' if not, 'No internet service' if not applicable
  * OnlineBackup - 'Yes' if a customer signed up for this option, 'No' if not, 'No internet service' if not applicable
  * DeviceProtection - 'Yes' if a customer signed up for this option, 'No' if not, 'No internet service' if not applicable
  * TechSupport - 'Yes' if a customer signed up for this option, 'No' if not, 'No internet service' if not applicable
