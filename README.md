@@ -4,14 +4,14 @@ Customer attrition, or customer churn, is the percentage of customers that stop 
 # Data
 The Telco Customer Churn dataset is utilized in this project and can be found [here](https://www.kaggle.com/blastchar/telco-customer-churn). This dataset contains 7,043 unique records with the following features:
 * Customer demographic features:
-  * customerID
-  * gender - 'Male' or 'Female'
-  * SeniorCitizen - 1 if customer is 65 or older, 0 if not
-  * Partner - 'Yes' if customer has a partner, 'No' if not
-  * Dependents - 'Yes' if customer lives with dependents, 'No' if not
+  * _customerID_
+  * _gender_ - 'Male' or 'Female'
+  * _SeniorCitizen_ - 1 if customer is 65 or older, 0 if not
+  * _Partner_ - 'Yes' if customer has a partner, 'No' if not
+  * _Dependents_ - 'Yes' if customer lives with dependents, 'No' if not
   
 * Service options features:
-  * PhoneService - 'Yes' if a customer signed up for home phone service, 'No' if not
+  * _PhoneService_ - 'Yes' if a customer signed up for home phone service, 'No' if not
   * MultipleLines - 'Yes' if a customer subscribed to multiple telephone lines, 'No' if not, 'No phone service' if not applicable
   * InternetService - 'DSL', 'Fiber optic', 'No' if customer did not subscribe to internet service
   * OnlineSecurity - 'Yes' if a customer subscribed for this option, 'No' if not, 'No internet service' if not applicable
