@@ -111,9 +111,9 @@ _gender_ appears to be the only demographic feature where the churn rate for eac
 
 ![part2](https://user-images.githubusercontent.com/71897317/128216307-17c397e1-973b-4f8f-8532-7a7228d81a04.png)
 
-
-
-
+Now we can address the imbalanced target variable. In this dataset there are 5,163 customers that did not churn and 1,869 customers that did churn. We will take two steps to address this: 
+1. F1-score will be used to measure the accuracy of the models
+2. Combine random over sampling and random under sampling 
 
 # Feature Selection with scikit-learn
 
