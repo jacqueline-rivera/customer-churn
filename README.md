@@ -50,6 +50,14 @@ The code above revealed that there are 11 blanks in _TotalCharges_. These blanks
 
 ![churnvtenure](https://user-images.githubusercontent.com/71897317/128102861-5776b9f4-c6bc-403d-b144-9e2c551e2815.png)
 
+![tenure-monthlycharges-totalcharges](https://user-images.githubusercontent.com/71897317/128102941-f33dcb0f-313a-4a43-8c6f-dab645ffc900.png)
+
+![demographics](https://user-images.githubusercontent.com/71897317/128102994-2fbb8e74-a9ec-4604-bef5-ba7882311c3e.png)
+
+![part1](https://user-images.githubusercontent.com/71897317/128103680-0c45c84b-fd4a-494a-8a59-9290584f5bac.png)
+
+
+![part2](https://user-images.githubusercontent.com/71897317/128103792-fb9bfd61-53df-46d1-8292-3757746396e0.png)
 
 
 # Feature Selection with scikit-learn
