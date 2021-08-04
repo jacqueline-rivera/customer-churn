@@ -160,12 +160,18 @@ The f1-score with all features for this model is 0.739. The classification repor
 </p>
  <!--![lr-cm](https://user-images.githubusercontent.com/71897317/128237256-736f38d0-6240-4829-afc2-b634eaa41ccb.png)-->
 
+We see that that the true label 1, or 'Yes', was incorrectly predicted as 0, or 'No', 228 times. We also see that the true label 0 was incorrectly predicted as 1 268 times. Running SBS on the trained Logistic Regression model and plotting the f1-score will allow us to choose the optimal number of features for our model. Here is the resulting plot from SBS on Logistic Regression: 
+
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128228179-b87171c8-358b-425b-9176-223781554440.png"/>
 </p>
 <!--![lr-SBS](https://user-images.githubusercontent.com/71897317/128228179-b87171c8-358b-425b-9176-223781554440.png)-->
 
+It appears that 9 features is the lowest number of features that will result in the highest f1-score. We can take a look at what those 9 features are by printing the indices from SBS and finding the corresponding features from the data frame. The features are _SeniorCitizen, tenure, PhoneService, TotalCharges, OnlineBackup_Online Backup, TechSupport_Tech Support, Contract_One year, Contract_Two year_, and _PaymentMethod_Electronic check_.
+
 ### Support Vector Machine
+
+We can repeat the process for the Support Vector Machine (SVM) model. 
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128228250-c5c029a9-bc2e-4c73-90f5-c881b3c58c8e.png"/>
