@@ -105,9 +105,7 @@ True | 1773 | 326 | 15.53
 
 The churn rate for the rest of the variables are below. We can see that...
 
-![part1](https://user-images.githubusercontent.com/71897317/128103680-0c45c84b-fd4a-494a-8a59-9290584f5bac.png)
-
-![part2](https://user-images.githubusercontent.com/71897317/128103792-fb9bfd61-53df-46d1-8292-3757746396e0.png)
+![part1](https://user-images.githubusercontent.com/71897317/128103680-0c45c84b-fd4a-494a-8a59-9290584f5bac.png) ![part2](https://user-images.githubusercontent.com/71897317/128103792-fb9bfd61-53df-46d1-8292-3757746396e0.png)
 
 
 # Feature Selection with scikit-learn
