@@ -105,7 +105,7 @@ Dependents | No | Yes | Churn %
 False | 3390 | 1543 | 31.28
 True | 1773 | 326 | 15.53
 
-_gender_ appears to be the only demographic feature where the churn rate for each class are not so different. Customers who are 65 or older are approximately 2.3 times more likely to churn than customers who are not. Customers who do not have a partner are approximately 2 times more likely to churn than customers who do have partners. Customers that do not have dependents are 2.4 times more likely to churn than customers who live with dependents. The churn rate for the rest of the categorical variables are below. We can see that...
+_gender_ appears to be the only demographic feature where the churn rate for each class are not so different. Customers who are 65 or older are approximately 2.3 times more likely to churn than customers who are not. Customers who do not have a partner are approximately 2 times more likely to churn than customers who do have partners. Customers that do not have dependents are 2.4 times more likely to churn than customers who live with dependents. The churn rate for the rest of the categorical variables are below. We can see that the churn rate varies for the categories within most of the features.
 
 ![part1](https://user-images.githubusercontent.com/71897317/128215143-270e9a4f-8d9e-486e-b8a5-8f44af84c05b.png)
 
