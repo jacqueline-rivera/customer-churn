@@ -119,7 +119,7 @@ This resulted in a new dataset that consists of 6,968 records with 3,871 custome
 
 # Feature Selection with scikit-learn
 
-With the modified dataset, we can begin our feature selection using scikit-learn. First we split the dataset into X (independent variables) and y (target variable), then we can encode all of the categorical features. We have six categorical features that are binary and will be encoded using label encoding: _gender, SeniorCitizen, Partner, Dependents, PhoneService_, and _PaperlessBilling_. The remaining categorical features will be encoded using one-hot-encoding: _MultipleLines, InternetService, OnlineSecurity, OnlineBackup, DeviceProtection, TechSupport, StreamingTV, StreamingMovies, Contract_, and _PaymentMethod_. We also label encode the target variable. We can then split the dataset into training and testing sets using the train_test_split function from scikit-learn and scale the features as well:
+With the modified dataset, we can begin our feature selection using scikit-learn. First we split the dataset into X (independent variables) and y (target variable), then we can encode all of the categorical features. We have seven categorical features that are binary and will be encoded using label encoding: _Churn, gender, SeniorCitizen, Partner, Dependents, PhoneService_, and _PaperlessBilling_. The remaining categorical features will be encoded using one-hot-encoding: _MultipleLines, InternetService, OnlineSecurity, OnlineBackup, DeviceProtection, TechSupport, StreamingTV, StreamingMovies, Contract_, and _PaymentMethod_. We then split the dataset into training and testing sets using the train_test_split function from scikit-learn and scale the features as well:
 
 ```python
 # 70/30 train/test split:
@@ -130,6 +130,7 @@ stdsc = StandardScaler()
 X_train_std = stdsc.fit_transform(X_train)
 X_test_std = stdsc.transform(X_test)
 ```
+Next we can reduce the dimensionality of the dataset and select "important" features using sequential backward selection (SBS). Information on SBS can be found [here](https://vitalflux.com/sequential-backward-feature-selection-python-example/). We run SBS on each model and plot the f1-score that was calculated as SBS removed features.
 
 ### Logistic Regression
 
