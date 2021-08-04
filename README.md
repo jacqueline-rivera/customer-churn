@@ -227,7 +227,7 @@ The f1-score with all features for this model is 0.804. The classification repor
  weighted avg | 0.82 | 0.82 | 0.82 | 2091
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/71897317/128240798-b442d31f-9d1f-4577-95b9-fe5b62c5ffcf.png"/>
+  <img src="https://user-images.githubusercontent.com/71897317/128240798-b442d31f-9d1f-4577-95b9-fe5b62c5ffcf.png" width="200"/>
 </p>
 <!--![rf-cm](https://user-images.githubusercontent.com/71897317/128240798-b442d31f-9d1f-4577-95b9-fe5b62c5ffcf.png)-->
 
