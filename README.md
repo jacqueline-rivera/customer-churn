@@ -83,6 +83,8 @@ print('Total Charges:', ttest(no['TotalCharges'], yes['TotalCharges'])['p-val'])
 
 Next we can take a look at the churn rate breakdown for demographic features: 
 
+![democharts](https://user-images.githubusercontent.com/71897317/128217083-35d88026-0f7e-4572-b16a-74288fd7ed0a.png)
+
 gender | No | Yes | Churn %
 -------|----|-----|--------
 Female | 2544 | 939 | 26.96
