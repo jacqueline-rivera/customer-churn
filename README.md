@@ -54,11 +54,10 @@ The code above revealed that there are 11 blanks in _TotalCharges_. These blanks
 
 Churn rate for demographic features: 
 
-Churn | No
-gender|
--------------|--------------
-Female | Content from cell 2
-Male | content
+gender | No | Yes | Churn %
+-------|----|-----|--------
+Female | 2544 | 939 | 26.96
+Male | 2619 | 930 | 26.20
 
 ![ct-gender](https://user-images.githubusercontent.com/71897317/128104487-1e840f9f-d1c3-43c7-98c9-4bc0a979053d.png) ![ct-senior](https://user-images.githubusercontent.com/71897317/128104551-3b7ddcc8-f03e-4f3a-bd77-ee6ed2f8a97a.png) 
 
