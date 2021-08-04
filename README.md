@@ -35,6 +35,13 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
 # Data Preparation
 Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64:
 
+Feature | Data Type
+--------|----------
+customerID | object
+gender | object
+SeniorCitizen | int64
+Partner | object
+
 ![dtypes](https://user-images.githubusercontent.com/71897317/128095002-74769773-53d8-41e2-a803-c027f236bdd8.png)
 
 ```python
@@ -73,10 +80,6 @@ Dependents | No | Yes | Churn %
 -----------|----|-----|--------
 False | 3390 | 1543 | 31.28
 True | 1773 | 326 | 15.53
-
-![ct-gender](https://user-images.githubusercontent.com/71897317/128104487-1e840f9f-d1c3-43c7-98c9-4bc0a979053d.png) ![ct-senior](https://user-images.githubusercontent.com/71897317/128104551-3b7ddcc8-f03e-4f3a-bd77-ee6ed2f8a97a.png) 
-
-![ct-partner](https://user-images.githubusercontent.com/71897317/128104635-960eeebd-48fb-4239-871f-73fcf949f540.png) ![ct-dependents](https://user-images.githubusercontent.com/71897317/128104741-4fc183a7-b244-4e8e-af43-a07d22e21b3d.png)
 
 
 ![part1](https://user-images.githubusercontent.com/71897317/128103680-0c45c84b-fd4a-494a-8a59-9290584f5bac.png)
