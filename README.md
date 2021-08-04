@@ -35,7 +35,7 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
 # Data Preparation
 Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64:
 
-![Screen Shot 2021-08-03 at 6 35 30 PM](https://user-images.githubusercontent.com/71897317/128095002-74769773-53d8-41e2-a803-c027f236bdd8.png)
+![dtypes](https://user-images.githubusercontent.com/71897317/128095002-74769773-53d8-41e2-a803-c027f236bdd8.png)
 
 ```python
 # check what is causing the object data type
@@ -44,6 +44,9 @@ print([x for x in data['TotalCharges'] if any(char.isdigit() for char in x) == F
 The code above revealed that there are 11 blanks in _TotalCharges_. These blanks were converted to NaN and then rows that contained null values were dropped. The resulting data frame contains 7,032 records.
 
 # EDA
+
+![Churn Distribution](https://user-images.githubusercontent.com/71897317/128102447-9154dd2f-f9bb-42e0-8df8-30894da40c3a.png)
+
 
 # Feature Selection with scikit-learn
 
