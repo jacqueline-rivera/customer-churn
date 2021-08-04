@@ -196,7 +196,7 @@ The f1-score with all features for this model is 0.741. The classification repor
 </p>
  <!--![svm-cm](https://user-images.githubusercontent.com/71897317/128239777-255f73e0-0564-409f-b6a5-2a2431850409.png)-->
 
- There is not much a difference in the metrics between the SVM model and Logistic Regression model. From the confusion matrix, we see that that the true label 1, or 'Yes', was incorrectly predicted as 0, or 'No', 222 times. We also see that the true label 0 was incorrectly predicted as 1 273 times. Running SBS on the trained SVM model and plotting the f1-score will allow us to choose the optimal number of features for our model. Here is the resulting plot for SBS on SVM: 
+There is not much difference in the metrics between the SVM model and Logistic Regression model. From the confusion matrix, we see that that the true label 1, or 'Yes', was incorrectly predicted as 0, or 'No', 222 times. We also see that the true label 0 was incorrectly predicted as 1 273 times. Running SBS on the trained SVM model and plotting the f1-score will allow us to choose the optimal number of features for our model. Here is the resulting plot for SBS on SVM: 
  
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128228250-c5c029a9-bc2e-4c73-90f5-c881b3c58c8e.png"/>
@@ -231,11 +231,18 @@ The f1-score with all features for this model is 0.804. The classification repor
 </p>
 <!--![rf-cm](https://user-images.githubusercontent.com/71897317/128240798-b442d31f-9d1f-4577-95b9-fe5b62c5ffcf.png)-->
 
-
+With the Random Forest Classifier model, there is an improvement in the f1-score as well as accuracy. From the confusion matrix, we see that that the true label 1, or 'Yes', was incorrectly predicted as 0, or 'No', 158 times. We also see that the true label 0 was incorrectly predicted as 1 218 times. Running SBS on the trained Random Forest Classifier model and plotting the f1-score will allow us to choose the optimal number of features for our model. Here is the resulting plot for SBS on Random Forest: 
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128228363-22fd559c-03e2-45fd-b793-d71f31ddb4cd.png"/>
 </p>
 <!--![rf-SBS](https://user-images.githubusercontent.com/71897317/128228363-22fd559c-03e2-45fd-b793-d71f31ddb4cd.png)-->
+
+It appears that 16 features is the lowest number of features that will result in the highest f1-score. The features are _SeniorCitizen, Partner, PaperlessBilling, MonthlyCharges, TotalCharges, MultipleLines_Single Line, InternetService_No internet service, OnlineBackup_Online Back up, DeviceProtection_No internet service, StreamingTV_Not Streaming TV, StreamingTV_Streaming TV, StreamingMovies_Not Streaming Movies, StreamingMoves_Streaming Movies, Contract_Two year, PaymentMethod_Credit card (automatic)_, and _PaymentMethod_Electronic check_.
+
+**Features that were chose across all classifiers: _Contract_Two year, PaymentMethod_Electronic check_, and _SeniorCitizen_.**
+**Features that did not appear in any of the chosen optimal models: _Dependents, InternetService_Fiber optic, MultipleLines_No phone service, OnlineBackup_No internet service, OnlineSecurity_No internet service, OnlineSecurity_Online Security, PaymentMethod_Mailed check, TechSupport_No internet service_, and, _gender_.**
+
+*It is worth noting that the features that were chosen across all classifiers/not chosen at all may change depending on the records selected in the oversampling/undersampling step* 
 
 # Model Selection with PyCaret
