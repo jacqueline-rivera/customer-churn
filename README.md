@@ -256,29 +256,19 @@ For the second goal of this project, we will use PyCaret to train various models
 <!--![compare](https://user-images.githubusercontent.com/71897317/128246747-1db36807-8af8-454d-940e-907900716520.png)
 ![compare_samp](https://user-images.githubusercontent.com/71897317/128245796-fcde595b-0143-4deb-9c97-045c4cc45a44.png)-->
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/71897317/128246973-f2670e67-d45d-48b8-9361-a864016a6c77.png" width="400"/>
+  <img src="https://user-images.githubusercontent.com/71897317/128246070-22f7c82f-3920-4f8e-a955-ea2a4ba89459.png" width="400"/>
+</p>
+<!--![confmat](https://user-images.githubusercontent.com/71897317/128246973-f2670e67-d45d-48b8-9361-a864016a6c77.png)
+![confmat_samp](https://user-images.githubusercontent.com/71897317/128246070-22f7c82f-3920-4f8e-a955-ea2a4ba89459.png)-->
 
-
-
-![tune](https://user-images.githubusercontent.com/71897317/128246862-048b2755-705f-400b-a1aa-0756482838dc.png)
-
-
-![tune_samp](https://user-images.githubusercontent.com/71897317/128245885-32b02436-b4f6-45b9-9828-201f860d920b.png)
-
-
-
-
-
-
-
-![confmat](https://user-images.githubusercontent.com/71897317/128246973-f2670e67-d45d-48b8-9361-a864016a6c77.png)
-
-
-![confmat_samp](https://user-images.githubusercontent.com/71897317/128246070-22f7c82f-3920-4f8e-a955-ea2a4ba89459.png)
-
-![AUC](https://user-images.githubusercontent.com/71897317/128247063-2bd32b6b-235f-4988-af06-b3d668f18959.png)
-
-
-![AUC_samp](https://user-images.githubusercontent.com/71897317/128246171-01161e49-e222-4f4c-8e68-ed6e0096efdd.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/71897317/128247063-2bd32b6b-235f-4988-af06-b3d668f18959.png" width="400"/>
+  <img src="https://user-images.githubusercontent.com/71897317/128246171-01161e49-e222-4f4c-8e68-ed6e0096efdd.png" width="400"/>
+</p>
+<!--![AUC](https://user-images.githubusercontent.com/71897317/128247063-2bd32b6b-235f-4988-af06-b3d668f18959.png)
+![AUC_samp](https://user-images.githubusercontent.com/71897317/128246171-01161e49-e222-4f4c-8e68-ed6e0096efdd.png)-->
 
 
 
