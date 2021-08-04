@@ -81,7 +81,7 @@ print('')
 print('Total Charges:', ttest(no['TotalCharges'], yes['TotalCharges'])['p-val'])
 ```
 
-Churn rate for demographic features: 
+Next we can take a look at the churn rate breakdown for demographic features: 
 
 gender | No | Yes | Churn %
 -------|----|-----|--------
@@ -103,9 +103,13 @@ Dependents | No | Yes | Churn %
 False | 3390 | 1543 | 31.28
 True | 1773 | 326 | 15.53
 
-The churn rate for the rest of the variables are below. We can see that...
+_gender_ appears to be the only demographic feature where the churn rate for each class are not so different. Customers who are 65 or older are approximately 2.3 times more likely to churn than customers who are not. Customers who do not have a partner are approximately 2 times more likely to churn than customers who do have partners. Customers that do not have dependents are 2.4 times more likely to churn than customers who live with dependents. The churn rate for the rest of the categorical variables are below. We can see that...
+
+![Screen Shot 2021-08-04 at 12 05 29 PM](https://user-images.githubusercontent.com/71897317/128215143-270e9a4f-8d9e-486e-b8a5-8f44af84c05b.png)
 
 ![part1](https://user-images.githubusercontent.com/71897317/128103680-0c45c84b-fd4a-494a-8a59-9290584f5bac.png) ![part2](https://user-images.githubusercontent.com/71897317/128103792-fb9bfd61-53df-46d1-8292-3757746396e0.png)
+
+
 
 
 # Feature Selection with scikit-learn
