@@ -247,35 +247,38 @@ It appears that 16 features is the lowest number of features that will result in
 *It is worth noting that the features that were chosen/not chosen across all classifiers may change depending on the records selected in the oversampling/undersampling step.* 
 
 # Model Selection with PyCaret
-For the second goal of this project, we will use PyCaret to train various models, choose the best model, tune the chosen model, and see how it performs. Implementing PyCaret:
+For the second goal of this project, PyCaret is employed to train various models, choose the best model, tune the chosen model, and see how it performs. Implementing PyCaret:
+
+```python
+from pycaret.classification import *
+clf = setup(data, target='Churn', ignore_features=['customerID']
+best_model = compare_models(sort='F1')
+```
+PyCaret classification is used on both the original data and the dataset created through oversampling and undersampling in order to compare the results. Below, we have the output for _compare_models_ on the original dataset on the left and the output for _compare_models_ on the sampling dataset on the right. We can see that the highest f1-score for the original datset was 0.6250 with the Naive Bayes model and the highest f1-score for the sampling dataset was 0.7991 with the Random Forest Classifier.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/71897317/128246747-1db36807-8af8-454d-940e-907900716520.png" width="400"/>
-  <img src="https://user-images.githubusercontent.com/71897317/128245796-fcde595b-0143-4deb-9c97-045c4cc45a44.png" width="400"/>
+  <img src="https://user-images.githubusercontent.com/71897317/128246747-1db36807-8af8-454d-940e-907900716520.png" width="350"/>
+  <img src="https://user-images.githubusercontent.com/71897317/128245796-fcde595b-0143-4deb-9c97-045c4cc45a44.png" width="350"/>
 </p>
 <!--![compare](https://user-images.githubusercontent.com/71897317/128246747-1db36807-8af8-454d-940e-907900716520.png)
 ![compare_samp](https://user-images.githubusercontent.com/71897317/128245796-fcde595b-0143-4deb-9c97-045c4cc45a44.png)-->
 
+Looking at the confusion matrices, we can see how the sampling dataset resulted in better classifications for the dataset. Below, we have the confusion matrix for the original dataset on the left and the confusion matrix for the sampling dataset on the right.
+
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/71897317/128246973-f2670e67-d45d-48b8-9361-a864016a6c77.png" width="400"/>
-  <img src="https://user-images.githubusercontent.com/71897317/128246070-22f7c82f-3920-4f8e-a955-ea2a4ba89459.png" width="400"/>
+  <img src="https://user-images.githubusercontent.com/71897317/128246973-f2670e67-d45d-48b8-9361-a864016a6c77.png" width="350"/>
+  <img src="https://user-images.githubusercontent.com/71897317/128246070-22f7c82f-3920-4f8e-a955-ea2a4ba89459.png" width="350"/>
 </p>
 <!--![confmat](https://user-images.githubusercontent.com/71897317/128246973-f2670e67-d45d-48b8-9361-a864016a6c77.png)
 ![confmat_samp](https://user-images.githubusercontent.com/71897317/128246070-22f7c82f-3920-4f8e-a955-ea2a4ba89459.png)-->
 
+Although the f1-score was the metric focused on throughout the project, overall accuracy is worth taking a look at using ROC curves. Below we have the ROC curve for the original dataset on the left and the ROC curve for the sampling dataset on the right. We can see that the dataset created with oversampling and undersampling had better accuracy. 
+
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/71897317/128247063-2bd32b6b-235f-4988-af06-b3d668f18959.png" width="400"/>
-  <img src="https://user-images.githubusercontent.com/71897317/128246171-01161e49-e222-4f4c-8e68-ed6e0096efdd.png" width="400"/>
+  <img src="https://user-images.githubusercontent.com/71897317/128247063-2bd32b6b-235f-4988-af06-b3d668f18959.png" width="350"/>
+  <img src="https://user-images.githubusercontent.com/71897317/128246171-01161e49-e222-4f4c-8e68-ed6e0096efdd.png" width="350"/>
 </p>
 <!--![AUC](https://user-images.githubusercontent.com/71897317/128247063-2bd32b6b-235f-4988-af06-b3d668f18959.png)
 ![AUC_samp](https://user-images.githubusercontent.com/71897317/128246171-01161e49-e222-4f4c-8e68-ed6e0096efdd.png)-->
 
-
-
-
-
-
-
-
-
-
+**Overall, Random Forest Classifier with data that was oversampled and undersampled performed the best with an f1-score of 80%.**
