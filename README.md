@@ -157,7 +157,7 @@ The f1-score with all features for this model is 0.739. The classification repor
  weighted avg | 0.76 | 0.76 | 0.76 | 2091
  
  <p align="center">
-  <img src="https://user-images.githubusercontent.com/71897317/128237256-736f38d0-6240-4829-afc2-b634eaa41ccb.png"/>
+  <img src="https://user-images.githubusercontent.com/71897317/128237256-736f38d0-6240-4829-afc2-b634eaa41ccb.png" width="350"/>
 </p>
  <!--![lr-cm](https://user-images.githubusercontent.com/71897317/128237256-736f38d0-6240-4829-afc2-b634eaa41ccb.png)-->
 
@@ -192,7 +192,7 @@ The f1-score with all features for this model is 0.741. The classification repor
  weighted avg | 0.77 | 0.76 | 0.76 | 2091
  
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/71897317/128239777-255f73e0-0564-409f-b6a5-2a2431850409.png"/>
+  <img src="https://user-images.githubusercontent.com/71897317/128239777-255f73e0-0564-409f-b6a5-2a2431850409.png" width="350"/>
 </p>
  <!--![svm-cm](https://user-images.githubusercontent.com/71897317/128239777-255f73e0-0564-409f-b6a5-2a2431850409.png)-->
 
@@ -227,7 +227,7 @@ The f1-score with all features for this model is 0.804. The classification repor
  weighted avg | 0.82 | 0.82 | 0.82 | 2091
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/71897317/128240798-b442d31f-9d1f-4577-95b9-fe5b62c5ffcf.png" width="300"/>
+  <img src="https://user-images.githubusercontent.com/71897317/128240798-b442d31f-9d1f-4577-95b9-fe5b62c5ffcf.png" width="350"/>
 </p>
 <!--![rf-cm](https://user-images.githubusercontent.com/71897317/128240798-b442d31f-9d1f-4577-95b9-fe5b62c5ffcf.png)-->
 
