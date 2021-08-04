@@ -145,6 +145,7 @@ lr = LogisticRegression(random_state=1)
 lr.fit(X_train_std, y_train)
 lr_pred = lr.predict(X_test_std)
 ```
+
 The f1-score with all features for this model is 0.739. The classification report and confusion matrix are as follows:
 
  | | precision | recall | f1-score | support
@@ -171,14 +172,66 @@ It appears that 9 features is the lowest number of features that will result in 
 
 ### Support Vector Machine
 
-We can repeat the process for the Support Vector Machine (SVM) model. 
+We can repeat the process for the Support Vector Machine (SVM) model: 
 
+```python
+from sklearn.svm import SVC
+
+svm = SVC(random_state=1)
+svm.fit(X_train_std, y_train)
+svm_pred = svm.predict(X_test_std)
+```
+The f1-score with all features for this model is 0.741. The classification report and confusion matrix are as follows:
+
+ | | precision | recall | f1-score | support
+ ---------|-----------|--------|----------|---------
+ 0 | 0.80 | 0.77 | 0.78 | 1162
+ 1 | 0.72 | 0.76 | 0.74 | 929
+ accuracy | | | 0.76 | 2091
+ macro avg | 0.76 | 0.76 | 0.76 | 2091
+ weighted avg | 0.77 | 0.76 | 0.76 | 2091
+ 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/71897317/128239777-255f73e0-0564-409f-b6a5-2a2431850409.png"/>
+</p>
+ <!--![svm-cm](https://user-images.githubusercontent.com/71897317/128239777-255f73e0-0564-409f-b6a5-2a2431850409.png)-->
+
+ There is not much a difference in the metrics between the SVM model and Logistic Regression model. From the confusion matrix, we see that that the true label 1, or 'Yes', was incorrectly predicted as 0, or 'No', 222 times. We also see that the true label 0 was incorrectly predicted as 1 273 times. Running SBS on the trained SVM model and plotting the f1-score will allow us to choose the optimal number of features for our model. Here is the resulting plot for SBS on SVM: 
+ 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128228250-c5c029a9-bc2e-4c73-90f5-c881b3c58c8e.png"/>
 </p>
 <!--![svm-SBS](https://user-images.githubusercontent.com/71897317/128228250-c5c029a9-bc2e-4c73-90f5-c881b3c58c8e.png)-->
 
+It appears that 12 features is the lowest number of features that will result in the highest f1-score. The features are _SeniorCitizen, Partner, tenure, PaperlessBilling, MonthlyCharges, MultipleLines_Single Line, DeviceProtection_No Device Protection, TechSupport_Tech Support, Contract_One year, Contract_Two year, PaymentMethod_Credit card (automatic)_, and _PaymentMethod_Electronic check_.
+
 ### Random Forest Classifier
+
+We repeat the steps one final time for Random Forest Classifier model:
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+
+rf = RandomForestClassifier(random_state=1)
+rf.fit(X_train_std, y_train)
+rf_pred = rf.predict(X_test_std)
+```
+The f1-score with all features for this model is 0.804. The classification report and confusion matrix are as follows:
+
+ | | precision | recall | f1-score | support
+ ---------|-----------|--------|----------|---------
+ 0 | 0.86 | 0.81 | 0.83 | 1162
+ 1 | 0.78 | 0.83 | 0.80 | 929
+ accuracy | | | 0.82 | 2091
+ macro avg | 0.82 | 0.82 | 0.82 | 2091
+ weighted avg | 0.82 | 0.82 | 0.82 | 2091
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/71897317/128240798-b442d31f-9d1f-4577-95b9-fe5b62c5ffcf.png"/>
+</p>
+<!--![rf-cm](https://user-images.githubusercontent.com/71897317/128240798-b442d31f-9d1f-4577-95b9-fe5b62c5ffcf.png)-->
+
+
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128228363-22fd559c-03e2-45fd-b793-d71f31ddb4cd.png"/>
