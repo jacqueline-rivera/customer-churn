@@ -241,8 +241,9 @@ With the Random Forest Classifier model, there is an improvement in the f1-score
 It appears that 16 features is the lowest number of features that will result in the highest f1-score. The features are _SeniorCitizen, Partner, PaperlessBilling, MonthlyCharges, TotalCharges, MultipleLines_Single Line, InternetService_No internet service, OnlineBackup_Online Back up, DeviceProtection_No internet service, StreamingTV_Not Streaming TV, StreamingTV_Streaming TV, StreamingMovies_Not Streaming Movies, StreamingMoves_Streaming Movies, Contract_Two year, PaymentMethod_Credit card (automatic)_, and _PaymentMethod_Electronic check_.
 
 **Features that were chose across all classifiers: _Contract_Two year, PaymentMethod_Electronic check_, and _SeniorCitizen_.**
+
 **Features that did not appear in any of the chosen optimal models: _Dependents, InternetService_Fiber optic, MultipleLines_No phone service, OnlineBackup_No internet service, OnlineSecurity_No internet service, OnlineSecurity_Online Security, PaymentMethod_Mailed check, TechSupport_No internet service_, and, _gender_.**
 
-*It is worth noting that the features that were chosen across all classifiers/not chosen at all may change depending on the records selected in the oversampling/undersampling step* 
+*It is worth noting that the features that were chosen/not chosen across all classifiers may change depending on the records selected in the oversampling/undersampling step* 
 
 # Model Selection with PyCaret
