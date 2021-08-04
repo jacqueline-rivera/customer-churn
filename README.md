@@ -33,16 +33,7 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
   * _Churn_ - 'Yes' if customer left the company this quarter, 'No' if not
 
 # Data Preparation
-Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64:
-
-Feature | Data Type
---------|----------
-customerID | object
-gender | object
-SeniorCitizen | int64
-Partner | object
-
-![dtypes](https://user-images.githubusercontent.com/71897317/128095002-74769773-53d8-41e2-a803-c027f236bdd8.png)
+Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64.
 
 ```python
 # check what is causing the object data type
