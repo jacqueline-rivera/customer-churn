@@ -147,7 +147,7 @@ lr_pred = lr.predict(X_test_std)
 ```
 The f1-score with all features for this model is 0.739. The classification report is as follows:
 
- <!-- --> | precision | recall | f1-score | support
+ | | precision | recall | f1-score | support
  ---------|-----------|--------|----------|---------
  0 | 0.80 | 0.77 | 0.78 | 1162
  1 | 0.72 | 0.75 | 0.74 | 929
