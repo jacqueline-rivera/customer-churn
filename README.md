@@ -41,6 +41,9 @@ print([x for x in data['TotalCharges'] if any(char.isdigit() for char in x) == F
 ```
 
 # EDA
+There is an imbalance in the target variable:
+* Customers that did not churn: 5163 or approximately 73%
+* Customers that did churn: 1869 or approximately 23%
 
 ![churndistribution](https://user-images.githubusercontent.com/71897317/128102632-1640f4cd-ea20-4d1c-8e97-328d22a6baa6.png)
 
