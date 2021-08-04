@@ -249,18 +249,12 @@ It appears that 16 features is the lowest number of features that will result in
 # Model Selection with PyCaret
 For the second goal of this project, we will use PyCaret to train various models, choose the best model, tune the chosen model, and see how it performs. Implementing PyCaret:
 
-```python
-from pycaret.classification import *
-
-# using original data first to compare to the data created from oversampling and undersampling
-
-```
-
-
-![compare](https://user-images.githubusercontent.com/71897317/128246747-1db36807-8af8-454d-940e-907900716520.png)
-
-
-![compare_samp](https://user-images.githubusercontent.com/71897317/128245796-fcde595b-0143-4deb-9c97-045c4cc45a44.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/71897317/128246747-1db36807-8af8-454d-940e-907900716520.png" width="400"/>
+  <img src="https://user-images.githubusercontent.com/71897317/128245796-fcde595b-0143-4deb-9c97-045c4cc45a44.png" width="400"/>
+</p>
+<!--![compare](https://user-images.githubusercontent.com/71897317/128246747-1db36807-8af8-454d-940e-907900716520.png)
+![compare_samp](https://user-images.githubusercontent.com/71897317/128245796-fcde595b-0143-4deb-9c97-045c4cc45a44.png)-->
 
 
 
