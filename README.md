@@ -45,7 +45,10 @@ The code above revealed that there are 11 blanks in _TotalCharges_. These blanks
 
 # EDA
 
-![Churn Distribution](https://user-images.githubusercontent.com/71897317/128102447-9154dd2f-f9bb-42e0-8df8-30894da40c3a.png)
+![churndistribution](https://user-images.githubusercontent.com/71897317/128102632-1640f4cd-ea20-4d1c-8e97-328d22a6baa6.png)
+
+![churnvtenure](https://user-images.githubusercontent.com/71897317/128102567-6dd00df3-f751-42bb-8b0b-ff98d097d338.png)
+
 
 
 # Feature Selection with scikit-learn
