@@ -51,15 +51,13 @@ There is an imbalance in the target variable:
 
 <!--![churndistribution](https://user-images.githubusercontent.com/71897317/128102632-1640f4cd-ea20-4d1c-8e97-328d22a6baa6.png)-->
 
-The imbalance will be addressed after taking a look at the other features in the dataset. Below we have the relationship between churn rate and _tenure_. The churn rate is calculated by dividing the number of churns by the total number of customers for each value of _tenure_. We see that there is a negative correlation between churn rate and _tenure_. This suggests that the longer a customer has been with the company, the less likely the customer will churn.
+The imbalance will be addressed after taking a look at the other features in the dataset. Below we have the relationship between churn rate and _tenure_. The churn rate is calculated by dividing the number of churns by the total number of customers for each unique value of _tenure_. We see that there is a negative correlation between churn rate and _tenure_. This suggests that the longer a customer has been with the company, the less likely the customer will churn.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128102861-5776b9f4-c6bc-403d-b144-9e2c551e2815.png"/>
 </p>
 
-<!--![churnvtenure](https://user-images.githubusercontent.com/71897317/128102861-5776b9f4-c6bc-403d-b144-9e2c551e2815.png)-->
-
-Below we have the pairwise relationships between _Churn_ and the numerical features. 
+<!--![churnvtenure](https://user-images.githubusercontent.com/71897317/128102861-5776b9f4-c6bc-403d-b144-9e2c551e2815.png)--> 
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128102941-f33dcb0f-313a-4a43-8c6f-dab645ffc900.png"/>
@@ -67,7 +65,7 @@ Below we have the pairwise relationships between _Churn_ and the numerical featu
 
 <!--![tenure-monthlycharges-totalcharges](https://user-images.githubusercontent.com/71897317/128102941-f33dcb0f-313a-4a43-8c6f-dab645ffc900.png)-->
 
-There is a difference in variance, medians, 25th percentile and 75th percentile within each plot. It appears that these features may be relevant when investigating churn. We can use two-sample t-tests to test whether the means for each group within the features are different. The p-values for all three t-tests were nearly 0 therefore there is enough evidence to conclude there is a difference in the means. 
+Above we have the pairwise relationships between _Churn_ and the numerical features. There is a difference in variance, medians, 25th percentile and 75th percentile within each plot. It appears that these features may be relevant when investigating churn. We can use two-sample t-tests to test whether the means for each group within the features are different. The p-values for all three t-tests were nearly 0 therefore there is enough evidence to conclude there is a difference in the means. 
 
 ```python
 # t-tests
@@ -105,9 +103,9 @@ Dependents | No | Yes | Churn %
 False | 3390 | 1543 | 31.28
 True | 1773 | 326 | 15.53
 
+The churn rate for the rest of the variables are below. We can see that...
 
 ![part1](https://user-images.githubusercontent.com/71897317/128103680-0c45c84b-fd4a-494a-8a59-9290584f5bac.png)
-
 
 ![part2](https://user-images.githubusercontent.com/71897317/128103792-fb9bfd61-53df-46d1-8292-3757746396e0.png)
 
