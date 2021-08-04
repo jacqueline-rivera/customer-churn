@@ -33,13 +33,12 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
   * _Churn_ - 'Yes' if customer left the company this quarter, 'No' if not
 
 # Data Preparation
-Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64.
+Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64. The code below revealed that there are 11 blanks in _TotalCharges_. These blanks were converted to NaN and the rows that contained null values were dropped. The resulting data frame contains 7,032 records.
 
 ```python
 # check what is causing the object data type
 print([x for x in data['TotalCharges'] if any(char.isdigit() for char in x) == False])
 ```
-The code above revealed that there are 11 blanks in _TotalCharges_. These blanks were converted to NaN and then rows that contained null values were dropped. The resulting data frame contains 7,032 records.
 
 # EDA
 
