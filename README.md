@@ -131,7 +131,7 @@ X_train_std = stdsc.fit_transform(X_train)
 X_test_std = stdsc.transform(X_test)
 ```
 
-## Logistic Regression
+### Logistic Regression
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128228179-b87171c8-358b-425b-9176-223781554440.png"/>
@@ -139,7 +139,7 @@ X_test_std = stdsc.transform(X_test)
 
 <!--![lr-SBS](https://user-images.githubusercontent.com/71897317/128228179-b87171c8-358b-425b-9176-223781554440.png)-->
 
-## Support Vector Machine
+### Support Vector Machine
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128228250-c5c029a9-bc2e-4c73-90f5-c881b3c58c8e.png"/>
@@ -147,7 +147,7 @@ X_test_std = stdsc.transform(X_test)
 
 <!--![svm-SBS](https://user-images.githubusercontent.com/71897317/128228250-c5c029a9-bc2e-4c73-90f5-c881b3c58c8e.png)-->
 
-## Random Forest Classifier
+### Random Forest Classifier
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128228363-22fd559c-03e2-45fd-b793-d71f31ddb4cd.png"/>
