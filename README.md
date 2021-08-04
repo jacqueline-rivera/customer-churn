@@ -59,13 +59,29 @@ The imbalance will be addressed after taking a look at the other features in the
 
 <!--![churnvtenure](https://user-images.githubusercontent.com/71897317/128102861-5776b9f4-c6bc-403d-b144-9e2c551e2815.png)-->
 
-Next we will look at the pairwise relationship between _Churn_ and the numerical features. 
+Below we have the pairwise relationships between _Churn_ and the numerical features. 
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128102941-f33dcb0f-313a-4a43-8c6f-dab645ffc900.png"/>
 </p>
 
 <!--![tenure-monthlycharges-totalcharges](https://user-images.githubusercontent.com/71897317/128102941-f33dcb0f-313a-4a43-8c6f-dab645ffc900.png)-->
+
+There is a difference in variance, medians, 25th percentile and 75th percentile within each plot. It appears that these features may be relevant when investigating churn. We can use two-sample t-tests to test whether the means for each group within the features are different. The p-values for all three t-tests were nearly 0 therefore there is enough evidence to conclude there is a difference in the means. 
+
+```python
+# t-tests
+from pingouin import ttest
+
+no = data[data['Churn']=='No']
+yes = data[data['Churn']=='Yes']
+
+print('Tenure:', ttest(no['tenure'], yes['tenure'])['p-val'])
+print('')
+print('Monthly Charges:', ttest(no['MonthlyCharges'], yes['MonthlyCharges'])['p-val'])
+print('')
+print('Total Charges:', ttest(no['TotalCharges'], yes['TotalCharges'])['p-val'])
+```
 
 Churn rate for demographic features: 
 
