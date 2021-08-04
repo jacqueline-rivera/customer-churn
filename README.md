@@ -111,12 +111,14 @@ _gender_ appears to be the only demographic feature where the churn rate for eac
 
 ![part2](https://user-images.githubusercontent.com/71897317/128216307-17c397e1-973b-4f8f-8532-7a7228d81a04.png)
 
-Now we can address the imbalanced target variable. In this dataset there are 5,163 customers that did not churn and 1,869 customers that did churn. We will take two steps to address this: 
+Now we can address the imbalanced target variable. In this dataset there are 5,163 customers that did not churn and 1,869 customers that did churn. We will take two steps to try to overcome the imbalance: 
 1. Use f1-score to measure the accuracy of the models
 2. Combine random oversampling and random undersampling 
 
 This resulted in a new dataset that consists of 6,968 records with 3,871 customers that did not churn and 3,097 customers that did churn. Information on the f1-score can be found [here](https://deepai.org/machine-learning-glossary-and-terms/f-score). A tutorial for random oversampling and undersampling can be found [here](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/).
 
 # Feature Selection with scikit-learn
+
+With the modified dataset, we can begin our feature selection using scikit-learn. First we split the dataset into X (independent variables) and y (target variable), then we can encode all of the categorical features. We have six categorical features that are binary and will be encoded using label encoding: _gender, SeniorCitizen, Partner, Dependents, PhoneService_, and _PaperlessBilling_. The remaining categorical features will be encoded using one-hot-encoding: _MultipleLines, InternetService, OnlineSecurity, OnlineBackup, DeviceProtection, TechSupport, StreamingTV, StreamingMovies, Contract_, and _PaymentMethod_. 
 
 # Model Selection with PyCaret
