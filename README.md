@@ -47,6 +47,7 @@ There is an imbalance in the target variable:
 
 ![churndistribution](https://user-images.githubusercontent.com/71897317/128102632-1640f4cd-ea20-4d1c-8e97-328d22a6baa6.png)
 
+The imbalance will be addressed after taking a look at the other features in the dataset.
 
 ![churnvtenure](https://user-images.githubusercontent.com/71897317/128102861-5776b9f4-c6bc-403d-b144-9e2c551e2815.png)
 
