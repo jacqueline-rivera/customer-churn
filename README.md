@@ -136,19 +136,19 @@ Repeating the steps made for the service options features, below we have the chu
 
 ![account](https://user-images.githubusercontent.com/71897317/129412654-6c261b20-829e-4a31-8ca2-460488461249.png)
 
-Again, we can see that the curn rate varies for the categories within the features. For instance, the 'Electronic check' option in _PaymentMethod_ has a churn rate that is at least 25% higher than the other values for this feature. Let's look at a couple of stratified contingency tables for this set of features: 
+Again, we can see that the curn rate varies for the categories within the features. For instance, the 'Electronic check' option in _PaymentMethod_ has a churn rate that is at least 25% higher than the other values in _PaymentMethod_ and the 'Month-to-month' option in _Contract_ has a churn rate that is at least 30% higher that the other values in _Contract_. Let's look at a couple of stratified contingency tables for this set of variables: 
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/129412433-dd3f7327-5d75-408f-b854-f73d83ce5699.png"/>
 </p>
 <!--![billing-payment](https://user-images.githubusercontent.com/71897317/129412433-dd3f7327-5d75-408f-b854-f73d83ce5699.png)-->
 
+First we have the table for _PaperlessBilling_ and _PaymentMethod_. We can see that there is an overall pattern of paperless billing leading to higher churn rates. Below we have the table for _Contract_ and _PaymentMethod_. 'Month-to-month' contracts paid with 'Electronic check' have a high churn rate of almost 54% while the same contract paith with a 'Mailed check' has a significantly lower churn rate of 31.58%.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/129412499-6d7eaa2f-5a74-44db-80e1-9de685f8361f.png"/>
 </p>
 <!--![contract-payment](https://user-images.githubusercontent.com/71897317/129412499-6d7eaa2f-5a74-44db-80e1-9de685f8361f.png)-->
-
 
 
 ## Dealing with Imbalanced Target Varible
@@ -169,30 +169,66 @@ X_ros, y_ros = ros.fit_resample(X_df, y_df)
 
 rus = RandomUnderSampler(sampling_strategy=0.8)
 X_co, y_co = rus.fit_resample(X_ros, y_ros)
+
+sampling_df = X_co.copy()
+sampling_df['Churn'] = y_co
 ```
 
-This resulted in a new dataset that consists of 6,968 records with 3,871 customers that did not churn and 3,097 customers that did churn. Information on the f1-score can be found [here](https://deepai.org/machine-learning-glossary-and-terms/f-score). A tutorial for random oversampling and undersampling can be found [here](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/).
+This resulted in a new dataset that consists of 6,984 records with 3,880 customers that did not churn and 3,104 customers that did churn. Information on the f1-score can be found [here](https://deepai.org/machine-learning-glossary-and-terms/f-score). A tutorial for random oversampling and undersampling can be found [here](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/).
 
 # Data Cleaning
 
-<!--
+Now that we have an overview of the variables in the dataset and have modified the dataset to overcome the imbalanced target feature, we can encode our data. First we split the dataset into X (independent variables) and y (target variable), then we can encode all of the categorical features. We have seven categorical features that are binary and will be encoded using label encoding: _Churn (our y), gender, SeniorCitizen, Partner, Dependents, PhoneService_, and _PaperlessBilling_. The remaining categorical features will be encoded using one-hot-encoding: _MultipleLines, InternetService, OnlineSecurity, OnlineBackup, DeviceProtection, TechSupport, StreamingTV, StreamingMovies, Contract_, and _PaymentMethod_. We then split the dataset into training and testing sets using the train_test_split function from scikit-learn and scale the features as well:
 
-# Feature Selection with scikit-learn
+```python
+from sklearn import preprocessing
 
-With the modified dataset, we can begin our feature selection using scikit-learn. First we split the dataset into X (independent variables) and y (target variable), then we can encode all of the categorical features. We have seven categorical features that are binary and will be encoded using label encoding: _Churn, gender, SeniorCitizen, Partner, Dependents, PhoneService_, and _PaperlessBilling_. The remaining categorical features will be encoded using one-hot-encoding: _MultipleLines, InternetService, OnlineSecurity, OnlineBackup, DeviceProtection, TechSupport, StreamingTV, StreamingMovies, Contract_, and _PaymentMethod_. We then split the dataset into training and testing sets using the train_test_split function from scikit-learn and scale the features as well:
+X_df = sampling_df.iloc[:, 1:-1].copy()
+y = sampling_df.iloc[:, -1].values
+
+# encoding binary categorical variables:
+binary_col = ['gender', 'SeniorCitizen', 'Partner', 'Dependents', 
+              'PhoneService', 'PaperlessBilling']
+
+for col in binary_col:
+    le = preprocessing.LabelEncoder()
+    X_df[col] = le.fit_transform(X_df[col])
+
+# one-hot-encoding for the remaining categorical variables:
+remaining_col = ['MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 
+                 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaymentMethod']
+
+X_df = pd.get_dummies(X_df, columns=remaining_col, drop_first=True)
+X = X_df.values
+
+# class encoding:
+le_class = preprocessing.LabelEncoder()
+y = le_class.fit_transform(y)
+```
 
 ```python
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
 
-# 70/30 train/test split:
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1, stratify=y)
+# 60/40 train/test split:
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=1)
 
-# scale features:
-stdsc = StandardScaler()
+# 20/20 test/validation split:
+X_test, X_val, y_test, y_val = train_test_split(X_test, y_test, test_size=0.5, random_state=1)
+
+# scale features
+stdsc = preprocessing.StandardScaler()
 X_train_std = stdsc.fit_transform(X_train)
 X_test_std = stdsc.transform(X_test)
+X_val_std = stdsc.transform(X_val)
+
+# we want to preserve the column names for later
+X_train_std = pd.DataFrame(X_train_std)
+X_train_std.columns = X_df.columns
 ```
+
+# Model Building
+
+<!--
 Next we can reduce the dimensionality of the dataset and select features that will result in the most optimal model using sequential backward selection (SBS). Information on SBS can be found [here](https://vitalflux.com/sequential-backward-feature-selection-python-example/). We run SBS on each model and plot the f1-score that was calculated as SBS removed features.
 
 ### Logistic Regression
