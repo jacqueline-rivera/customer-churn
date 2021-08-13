@@ -44,6 +44,7 @@ print([x for x in df['TotalCharges'] if any(char.isdigit() for char in x) == Fal
 df['TotalCharges'] = df['TotalCharges'].replace(' ', np.nan)
 df['TotalCharges'] = df['TotalCharges'].astype('float64')
 ```
+
 ## Target Variable
 There is an imbalance in the target variable that will be addressed after taking a look at the features in the dataset:
 * Customers that did not churn: 5174 or approximately 73%
@@ -52,7 +53,6 @@ There is an imbalance in the target variable that will be addressed after taking
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/129407180-597f927c-373b-42b6-bd72-92fba58b6a7c.png"/>
 </p>
-
 <!--![churndistribution](https://user-images.githubusercontent.com/71897317/129407180-597f927c-373b-42b6-bd72-92fba58b6a7c.png)-->
 
 ## Numerical Features
@@ -61,7 +61,6 @@ We will examine the numerical features first. Below we have the relationship bet
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128102861-5776b9f4-c6bc-403d-b144-9e2c551e2815.png"/>
 </p>
-
 <!--![churnvtenure](https://user-images.githubusercontent.com/71897317/128102861-5776b9f4-c6bc-403d-b144-9e2c551e2815.png)--> 
 
 We see that there is a negative correlation between churn rate and _tenure_. This suggests that the longer a customer has been with the company, the less likely the customer will churn. For _MonthlyCharges_ and _TotalCharges_, we can compare the distributions using layered histograms.
@@ -69,26 +68,18 @@ We see that there is a negative correlation between churn rate and _tenure_. Thi
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/129407964-d845048a-480e-42dd-b58f-96ec369f0b07.png"/>
 </p>
-
 <!--![layeredhist](https://user-images.githubusercontent.com/71897317/129407964-d845048a-480e-42dd-b58f-96ec369f0b07.png)-->
 
-<!--
+We can see in _MonthlyCharges_ that there is a sharp peak for customers that do not churn at the $20 range, otherwise the distributions for _Churn_='Yes' and _Churn_='No' follow a similar pattern for this feature. The distributions for _TotalCharges_ are both skewed right. 
 
-Above we have the pairwise relationships between _Churn_ and the numerical features. There is a difference in variance, medians, 25th percentile and 75th percentile within each plot. It appears that these features may be relevant when investigating churn. We can use two-sample t-tests to test whether the means for each group within the features are different. The p-values for all three t-tests were nearly 0 therefore there is enough evidence to conclude there is a difference in the means. 
-
+Now that we have analyzed the numerical features, we can fill in missing values for _TotalCharges_:
 ```python
-# t-tests
-from pingouin import ttest
-
-no = data[data['Churn']=='No']
-yes = data[data['Churn']=='Yes']
-
-print('Tenure:', ttest(no['tenure'], yes['tenure'])['p-val'])
-print('')
-print('Monthly Charges:', ttest(no['MonthlyCharges'], yes['MonthlyCharges'])['p-val'])
-print('')
-print('Total Charges:', ttest(no['TotalCharges'], yes['TotalCharges'])['p-val'])
+df['TotalCharges'].fillna(df['TotalCharges'].mean(), inplace=True)
 ```
+
+## Categorical Features
+
+<!--
 
 Next we can take a look at the churn rate breakdown for demographic features: 
 
