@@ -1,3 +1,5 @@
+<!--
+
 Customer attrition, or customer churn, is the percentage of customers that stop using a product within a given time frame. The first goal of this project is to identify important features that help determine if a customer will churn. The second goal of this project is to build a model that will predict if a customer will churn. 
 
 # Data
@@ -50,6 +52,8 @@ There is an imbalance in the target variable:
 
 <!--![churndistribution](https://user-images.githubusercontent.com/71897317/128102632-1640f4cd-ea20-4d1c-8e97-328d22a6baa6.png)-->
 
+<!--
+
 The imbalance will be addressed after taking a look at the other features in the dataset. Below we have the relationship between churn rate and _tenure_. The churn rate is calculated by dividing the number of churns by the total number of customers for each unique value of _tenure_. We see that there is a negative correlation between churn rate and _tenure_. This suggests that the longer a customer has been with the company, the less likely the customer will churn.
 
 <p align="center">
@@ -58,11 +62,15 @@ The imbalance will be addressed after taking a look at the other features in the
 
 <!--![churnvtenure](https://user-images.githubusercontent.com/71897317/128102861-5776b9f4-c6bc-403d-b144-9e2c551e2815.png)--> 
 
+<!--
+
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128102941-f33dcb0f-313a-4a43-8c6f-dab645ffc900.png"/>
 </p>
 
 <!--![tenure-monthlycharges-totalcharges](https://user-images.githubusercontent.com/71897317/128102941-f33dcb0f-313a-4a43-8c6f-dab645ffc900.png)-->
+
+<!--
 
 Above we have the pairwise relationships between _Churn_ and the numerical features. There is a difference in variance, medians, 25th percentile and 75th percentile within each plot. It appears that these features may be relevant when investigating churn. We can use two-sample t-tests to test whether the means for each group within the features are different. The p-values for all three t-tests were nearly 0 therefore there is enough evidence to conclude there is a difference in the means. 
 
@@ -160,12 +168,16 @@ The f1-score with all features for this model is 0.739. The classification repor
 </p>
  <!--![lr-cm](https://user-images.githubusercontent.com/71897317/128237256-736f38d0-6240-4829-afc2-b634eaa41ccb.png)-->
 
+<!--
+
 We see that that the true label 1, or 'Yes', was incorrectly predicted as 0, or 'No', 228 times. We also see that the true label 0 was incorrectly predicted as 1 268 times. Running SBS on the trained Logistic Regression model and plotting the f1-score will allow us to choose the optimal number of features for our model. Here is the resulting plot from SBS on Logistic Regression: 
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128228179-b87171c8-358b-425b-9176-223781554440.png"/>
 </p>
 <!--![lr-SBS](https://user-images.githubusercontent.com/71897317/128228179-b87171c8-358b-425b-9176-223781554440.png)-->
+
+<!--
 
 It appears that 9 features is the lowest number of features that will result in the highest f1-score. We can take a look at what those 9 features are by printing the indices from SBS and finding the corresponding features from the data frame. The features are _SeniorCitizen, tenure, PhoneService, TotalCharges, OnlineBackup_Online Backup, TechSupport_Tech Support, Contract_One year, Contract_Two year_, and _PaymentMethod_Electronic check_.
 
@@ -195,12 +207,16 @@ The f1-score with all features for this model is 0.741. The classification repor
 </p>
  <!--![svm-cm](https://user-images.githubusercontent.com/71897317/128239777-255f73e0-0564-409f-b6a5-2a2431850409.png)-->
 
+<!--
+
 There is not much difference in the metrics between the SVM model and Logistic Regression model. From the confusion matrix, we see that that the true label 1, or 'Yes', was incorrectly predicted as 0, or 'No', 222 times. We also see that the true label 0 was incorrectly predicted as 1 273 times. Running SBS on the trained SVM model and plotting the f1-score will allow us to choose the optimal number of features for our model. Here is the resulting plot for SBS on SVM: 
  
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128228250-c5c029a9-bc2e-4c73-90f5-c881b3c58c8e.png"/>
 </p>
 <!--![svm-SBS](https://user-images.githubusercontent.com/71897317/128228250-c5c029a9-bc2e-4c73-90f5-c881b3c58c8e.png)-->
+
+<!--
 
 It appears that 12 features is the lowest number of features that will result in the highest f1-score. The features are _SeniorCitizen, Partner, tenure, PaperlessBilling, MonthlyCharges, MultipleLines_Single Line, DeviceProtection_No Device Protection, TechSupport_Tech Support, Contract_One year, Contract_Two year, PaymentMethod_Credit card (automatic)_, and _PaymentMethod_Electronic check_.
 
@@ -230,12 +246,16 @@ The f1-score with all features for this model is 0.804. The classification repor
 </p>
 <!--![rf-cm](https://user-images.githubusercontent.com/71897317/128240798-b442d31f-9d1f-4577-95b9-fe5b62c5ffcf.png)-->
 
+<!--
+
 With the Random Forest Classifier model, there is an improvement in the f1-score as well as accuracy. From the confusion matrix, we see that that the true label 1, or 'Yes', was incorrectly predicted as 0, or 'No', 158 times. We also see that the true label 0 was incorrectly predicted as 1 218 times. Running SBS on the trained Random Forest Classifier model and plotting the f1-score will allow us to choose the optimal number of features for our model. Here is the resulting plot for SBS on Random Forest: 
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128228363-22fd559c-03e2-45fd-b793-d71f31ddb4cd.png"/>
 </p>
 <!--![rf-SBS](https://user-images.githubusercontent.com/71897317/128228363-22fd559c-03e2-45fd-b793-d71f31ddb4cd.png)-->
+
+<!--
 
 It appears that 16 features is the lowest number of features that will result in the highest f1-score. The features are _SeniorCitizen, Partner, PaperlessBilling, MonthlyCharges, TotalCharges, MultipleLines_Single Line, InternetService_No internet service, OnlineBackup_Online Back up, DeviceProtection_No internet service, StreamingTV_Not Streaming TV, StreamingTV_Streaming TV, StreamingMovies_Not Streaming Movies, StreamingMoves_Streaming Movies, Contract_Two year, PaymentMethod_Credit card (automatic)_, and _PaymentMethod_Electronic check_.
 
@@ -262,6 +282,8 @@ PyCaret classification is used on both the original data and the dataset created
 <!--![compare](https://user-images.githubusercontent.com/71897317/128246747-1db36807-8af8-454d-940e-907900716520.png)
 ![compare_samp](https://user-images.githubusercontent.com/71897317/128245796-fcde595b-0143-4deb-9c97-045c4cc45a44.png)-->
 
+<!--
+
 Looking at the confusion matrices, we can see how the sampling dataset resulted in better classifications for the dataset. Below, we have the confusion matrix for the original dataset on the left and the confusion matrix for the sampling dataset on the right.
 
 <p align="center">
@@ -270,6 +292,8 @@ Looking at the confusion matrices, we can see how the sampling dataset resulted 
 </p>
 <!--![confmat](https://user-images.githubusercontent.com/71897317/128246973-f2670e67-d45d-48b8-9361-a864016a6c77.png)
 ![confmat_samp](https://user-images.githubusercontent.com/71897317/128246070-22f7c82f-3920-4f8e-a955-ea2a4ba89459.png)-->
+
+<!--
 
 Although the f1-score was the metric focused on throughout the project, overall accuracy is worth taking a look at using ROC curves. Below we have the ROC curve for the original dataset on the left and the ROC curve for the sampling dataset on the right. We can see that the dataset created with oversampling and undersampling had better accuracy. 
 
@@ -280,4 +304,5 @@ Although the f1-score was the metric focused on throughout the project, overall 
 <!--![AUC](https://user-images.githubusercontent.com/71897317/128247063-2bd32b6b-235f-4988-af06-b3d668f18959.png)
 ![AUC_samp](https://user-images.githubusercontent.com/71897317/128246171-01161e49-e222-4f4c-8e68-ed6e0096efdd.png)-->
 
+<!--
 **Overall, Random Forest Classifier with data that was oversampled and undersampled performed the best with an f1-score of 80%.**
