@@ -228,8 +228,19 @@ X_train_std = pd.DataFrame(X_train_std)
 X_train_std.columns = X_df.columns
 ```
 
-# Model Building
+# Model Building with Scikit-Learn
 
+We are ready to build our models. For this project, we will train Logistic Regression, Random Forest, and Gradient Boosting classifiers using GridSearchCV.
+
+## Logistic Regression
+
+## Random Forest
+
+## Gradient Boosting
+
+# Feature Selection
+
+# Model Selection
 <!--
 Next we can reduce the dimensionality of the dataset and select features that will result in the most optimal model using sequential backward selection (SBS). Information on SBS can be found [here](https://vitalflux.com/sequential-backward-feature-selection-python-example/). We run SBS on each model and plot the f1-score that was calculated as SBS removed features.
 
