@@ -149,13 +149,29 @@ We can also look at the relationship between various features by creating a stra
 
 
 
-<!--
+# Dealing with Imbalanced Target Varible
 
-Now we can address the imbalanced target variable. In this dataset there are 5,163 customers that did not churn and 1,869 customers that did churn. We will take two steps to try to overcome the imbalance: 
+Now we can address the imbalanced target variable. In this dataset there are 5,174 customers that did not churn and 1,869 customers that did churn. We will take two steps to try to overcome the imbalance: 
 1. Use f1-score to measure the accuracy of the models
 2. Combine random oversampling and random undersampling 
 
+```python
+from imblearn.over_sampling import RandomOverSampler
+from imblearn.under_sampling import RandomUnderSampler
+
+X_df = df.drop('Churn', axis=1).copy()
+y_df = df['Churn'].values
+
+ros = RandomOverSampler(sampling_strategy=0.6)
+X_ros, y_ros = ros.fit_resample(X_df, y_df)
+
+rus = RandomUnderSampler(sampling_strategy=0.8)
+X_co, y_co = rus.fit_resample(X_ros, y_ros)
+```
+
 This resulted in a new dataset that consists of 6,968 records with 3,871 customers that did not churn and 3,097 customers that did churn. Information on the f1-score can be found [here](https://deepai.org/machine-learning-glossary-and-terms/f-score). A tutorial for random oversampling and undersampling can be found [here](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/).
+
+# Data Cleaning
 
 <!--
 
