@@ -132,13 +132,11 @@ First we have the stratified contingency table of _TechSupport_ and _InternetSer
 Next we have the stratified contingency table of _OnlineSecurity_ and _OnlineBackup_. Here we see a stark difference between customers who have 'No Online Security' and 'No Online Backup' and customers who have 'Online Security' and 'Online Backup'. Is there a way to encourage 'Online Security' and 'Online Backup' in order to lower the churn rate?
 
 ### Customer Account 
-
+Repeating the steps made for the service options features, below we have the churn rates for the values in the customer account features. 
 
 ![account](https://user-images.githubusercontent.com/71897317/129412654-6c261b20-829e-4a31-8ca2-460488461249.png)
 
-
-
-
+Again, we can see that the curn rate varies for the categories within the features. For instance, the 'Electronic check' option in _PaymentMethod_ has a churn rate that is at least 25% higher than the other values for this feature. Let's look at a couple of stratified contingency tables for this set of features: 
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/129412433-dd3f7327-5d75-408f-b854-f73d83ce5699.png"/>
@@ -153,7 +151,7 @@ Next we have the stratified contingency table of _OnlineSecurity_ and _OnlineBac
 
 
 
-# Dealing with Imbalanced Target Varible
+## Dealing with Imbalanced Target Varible
 
 Now we can address the imbalanced target variable. In this dataset there are 5,174 customers that did not churn and 1,869 customers that did churn. We will take two steps to try to overcome the imbalance: 
 1. Use f1-score to measure the accuracy of the models
