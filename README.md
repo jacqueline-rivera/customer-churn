@@ -308,6 +308,24 @@ Features that did not appear in any of the chosen optimal models: _gender, Senio
 *It is worth noting that the features that were chosen/not chosen may change depending on the records selected in the oversampling/undersampling step.* 
 
 # Model Selection
+Now that we have built and tuned our models, we can test the models on the validation set and choose the model that performs the best.
+The resulting accuracy and f1 scores are as follows:
+
+Model | Accuracy | F1 Score
+------|----------|---------
+Logistic Regression | 74.52 | 72.45
+Random Forest | 80.82 | 78.9
+Gradient Boosting | 79.17 | 77.56
+
+The Random Forest classifier performed the best with the highest accuracy and f1 score. We will use the Random Forest model on the test set and plot the confusion matrix. The accuracy on the test set is 82.32% and the f1 score is 81.27%.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/71897317/129423003-7e2f6aa0-ded4-4cb8-a58d-417dc764525e.png" width="350"/>
+</p>
+<!--![cm](https://user-images.githubusercontent.com/71897317/129423003-7e2f6aa0-ded4-4cb8-a58d-417dc764525e.png)-->
+
+
+
 <!--
 Next we can reduce the dimensionality of the dataset and select features that will result in the most optimal model using sequential backward selection (SBS). Information on SBS can be found [here](https://vitalflux.com/sequential-backward-feature-selection-python-example/). We run SBS on each model and plot the f1-score that was calculated as SBS removed features.
 
