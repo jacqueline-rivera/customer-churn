@@ -111,11 +111,11 @@ True | 1773 | 326 | 15.53
 * _Dependents_: customers that do not have dependents are 2.4 times more likely to churn than customers who live with dependents 
 
 ### Service Options
-Below we have the churn rates for the values in the service options features. We can see that the churn rate varies for the categories within the features. For instance, the 'Fiber optic' option in _InternetService_ has a churn rate that is at least 10% higher than the other values for this features. 
+Below we have the churn rates for the values in the service options features. We can see that the churn rate varies for the categories within the features. For instance, the 'Fiber optic' option in _InternetService_ has a churn rate that is at least 10% higher than the other values for this feature. 
 
 ![service](https://user-images.githubusercontent.com/71897317/129410555-bc1f50e9-ab94-477e-aaba-c3cfabfbddf2.png)
 
-We can also look at the relationship between various features by creating a stratified contingency table. Here are a few examples:
+We can also look at the relationship between various features by creating a stratified contingency table. Here are a couple of examples:
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/129411733-f5614aef-2865-4451-9ec6-631dad26e132.png"/>
@@ -126,6 +126,26 @@ We can also look at the relationship between various features by creating a stra
   <img src="https://user-images.githubusercontent.com/71897317/129411919-03b8b950-51a4-41c7-bc06-37f7137eb12f.png"/>
 </p>
 <!--![security-backup](https://user-images.githubusercontent.com/71897317/129411919-03b8b950-51a4-41c7-bc06-37f7137eb12f.png)-->
+
+### Customer Account 
+
+
+![account](https://user-images.githubusercontent.com/71897317/129412654-6c261b20-829e-4a31-8ca2-460488461249.png)
+
+
+
+
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/71897317/129412433-dd3f7327-5d75-408f-b854-f73d83ce5699.png"/>
+</p>
+<!--![billing-payment](https://user-images.githubusercontent.com/71897317/129412433-dd3f7327-5d75-408f-b854-f73d83ce5699.png)-->
+
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/71897317/129412499-6d7eaa2f-5a74-44db-80e1-9de685f8361f.png"/>
+</p>
+<!--![contract-payment](https://user-images.githubusercontent.com/71897317/129412499-6d7eaa2f-5a74-44db-80e1-9de685f8361f.png)-->
 
 
 
