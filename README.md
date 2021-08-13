@@ -233,10 +233,63 @@ X_train_std.columns = X_df.columns
 We are ready to build our models. For this project, we will train Logistic Regression, Random Forest, and Gradient Boosting classifiers using GridSearchCV.
 
 ## Logistic Regression
+First we will build the Logistic Regression model. Using GridSearchCV, we can try different values for the hyperparameter 'C' and check which value gives us the highest f1 score.
+
+```python
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import GridSearchCV
+
+lr = LogisticRegression(random_state=1)
+
+parameters = {
+    'C': [0.001, 0.01, 0.1, 1, 10, 100, 1000]
+}
+
+lr_cv = GridSearchCV(estimator=lr, param_grid=parameters, scoring='f1', cv=5)
+lr_cv.fit(X_train_std, y_train.values.ravel())
+print('Mean Test Scores:', lr_cv.cv_results_['mean_test_score'])
+```
+The average f1 results for each value of 'C' are: 74.8%, 75.2%, 75.6%, 75.5%, 75.6%, 75.7%, and 75.7%. Since C=100 has the highest f1 score, this is the hyperparameter that will be used in the Logistic Regression model.
 
 ## Random Forest
+Next we will build the Random Forest classifier. Here, we will try different values for three hyperparameters: n_estimators, max_features, and max_depth and find which combination of these values will result in the highest f1 score.
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+
+rf = RandomForestClassifier(random_state=1)
+
+parameters = {
+    'n_estimators': [5, 25, 50, 100, 250],
+    'max_features': ['auto', 'sqrt', 'log2'],
+    'max_depth': [2, 4, 8, 16, 32, 64, None]
+}
+
+rf_cv = GridSearchCV(estimator=rf, param_grid=parameters, scoring='f1', cv=5)
+rf_cv.fit(X_train, y_train.values.ravel())
+print('Mean Test Scores:', rf_cv.cv_results_['mean_test_score'])
+```
+The combination of values that resulted in the highest f1 score of 79.7% are max_depth = 16, max_features = log2, and n_estimators = 100. This combination will be used for the hyperparameters of the Random Forest classifier.
 
 ## Gradient Boosting
+Finally, we will build the Gradient Boosting classifier. The hyperparameters that will be tuned for this model are: n_estimators, max_depth, and learning_rate. 
+
+```python
+from sklearn.ensemble import GradientBoostingClassifier
+
+gb = GradientBoostingClassifier(random_state=1)
+
+parameters = {
+    'n_estimators' : [5, 50, 100, 250, 500], 
+    'max_depth' : [2, 4, 6, 8, 10],
+    'learning_rate' : [0.01, 0.1, 1, 10, 100]
+}
+
+gb_cv = GridSearchCV(estimator=gb, param_grid=parameters, scoring='f1', cv=5)
+gb_cv.fit(X_train, y_train.values.ravel())
+print('Mean Test Scores:', gb_cv.cv_results_['mean_test_score'])
+```
+The combination of values that resulted in the highest f1 score of 78.2% are n_estimators = 500, max_depth = 8, and learning_rate = 0.01. This combination will be used for the hyperparameters of the Gradient Boosting model.
 
 # Feature Selection
 
