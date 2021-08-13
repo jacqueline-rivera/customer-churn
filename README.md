@@ -122,10 +122,14 @@ We can also look at the relationship between various features by creating a stra
 </p>
 <!--![techsupport-internetservice](https://user-images.githubusercontent.com/71897317/129411733-f5614aef-2865-4451-9ec6-631dad26e132.png)-->
 
+First we have the stratified contingency table of _TechSupport_ and _InternetService_. Customers that have 'No Tech Support' and the 'Fiber optic' option of _InternetService_ have a churn rate of 49.37%. That is pretty high and it may be worth the company looking into. On the other hand, customers that have 'Tech Support' and the 'DSL' option of _InternetService_ have a churn rate of 9.86%. Why is there a low churn rate for this combination of features? Can something be learned from this and applied to customers that have 'Fiber optic' with 'No Tech Support'?
+
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/129411919-03b8b950-51a4-41c7-bc06-37f7137eb12f.png"/>
 </p>
 <!--![security-backup](https://user-images.githubusercontent.com/71897317/129411919-03b8b950-51a4-41c7-bc06-37f7137eb12f.png)-->
+
+Next we have the stratified contingency table of _OnlineSecurity_ and _OnlineBackup_. Here we see a stark difference between customers who have 'No Online Security' and 'No Online Backup' and customers who have 'Online Security' and 'Online Backup'. Is there a way to encourage 'Online Security' and 'Online Backup' in order to lower the churn rate?
 
 ### Customer Account 
 
