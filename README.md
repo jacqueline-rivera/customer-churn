@@ -1,6 +1,4 @@
-<!--
-
-Customer attrition, or customer churn, is the percentage of customers that stop using a product within a given time frame. The first goal of this project is to identify important features that help determine if a customer will churn. The second goal of this project is to build a model that will predict if a customer will churn. 
+Customer attrition, or customer churn, is the percentage of customers that stop using a product within a given time frame. The goals of this project are to identify important features that help determine if a customer will churn and to build a model that will predict if a customer will churn. 
 
 # Data
 The Telco Customer Churn dataset is utilized in this project and can be found [here](https://www.kaggle.com/blastchar/telco-customer-churn). This dataset contains 7,043 unique records with 21 features:
@@ -33,24 +31,29 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
 * Target Variable:
   * _Churn_ - 'Yes' if customer left the company this quarter, 'No' if not
 
-# Data Preparation
-Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64. The code below revealed that there are 11 blanks in _TotalCharges_. These blanks were converted to NaN and the rows that contained null values were dropped. The resulting data frame contains 7,032 records.
+# EDA
+Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64. The code below revealed that there are 11 blanks in _TotalCharges_; these blanks were converted to NaN. 
 
 ```python
 # check what is causing the object data type
-print([x for x in data['TotalCharges'] if any(char.isdigit() for char in x) == False])
+print([x for x in df['TotalCharges'] if any(char.isdigit() for char in x) == False])
+```
+```python
+# replace blanks with NaN
+df['TotalCharges'] = df['TotalCharges'].replace(' ', np.nan)
+df['TotalCharges'] = df['TotalCharges'].astype('float64')
 ```
 
-# EDA
 There is an imbalance in the target variable:
-* Customers that did not churn: 5163 or approximately 73%
-* Customers that did churn: 1869 or approximately 23%
+* Customers that did not churn: 5174 or approximately 73%
+* Customers that did churn: 1869 or approximately 27%
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/71897317/128102632-1640f4cd-ea20-4d1c-8e97-328d22a6baa6.png"/>
+  <img src="https://user-images.githubusercontent.com/71897317/129407180-597f927c-373b-42b6-bd72-92fba58b6a7c.png"/>
 </p>
 
-<!--![churndistribution](https://user-images.githubusercontent.com/71897317/128102632-1640f4cd-ea20-4d1c-8e97-328d22a6baa6.png)-->
+<!--![churndistribution](https://user-images.githubusercontent.com/71897317/129407180-597f927c-373b-42b6-bd72-92fba58b6a7c.png)
+
 
 <!--
 
