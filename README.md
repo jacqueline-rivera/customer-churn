@@ -314,7 +314,7 @@ The resulting accuracy and f1 scores are as follows:
 Model | Accuracy | F1 Score
 ------|----------|---------
 Logistic Regression | 74.52 | 72.45
-Random Forest | 80.82 | 78.9
+Random Forest | 80.82 | 78.90
 Gradient Boosting | 79.17 | 77.56
 
 The Random Forest classifier performed the best with the highest accuracy and f1 score. We will use the Random Forest model on the test set and plot the confusion matrix. 
