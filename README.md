@@ -230,7 +230,7 @@ X_train_std.columns = X_df.columns
 
 # Model Building with Scikit-Learn
 
-We are ready to build our models. For this project, we will train Logistic Regression, Random Forest, and Gradient Boosting classifiers using GridSearchCV.
+We are ready to build our models. For this project, we will train Logistic Regression, Random Forest, and Gradient Boosting classifiers and find the optimal hyperparameters for each model using GridSearchCV.
 
 ## Logistic Regression
 First we will build the Logistic Regression model. Using GridSearchCV, we can try different values for the hyperparameter 'C' and check which value gives us the highest f1 score.
@@ -252,7 +252,7 @@ print('Mean Test Scores:', lr_cv.cv_results_['mean_test_score'])
 The average f1 results for each value of 'C' are: 74.8%, 75.2%, 75.6%, 75.5%, 75.6%, 75.7%, and 75.7%. Since C=100 has the highest f1 score, this is the hyperparameter that will be used in the Logistic Regression model.
 
 ## Random Forest
-Next we will build the Random Forest classifier. Here, we will try different values for three hyperparameters: n_estimators, max_features, and max_depth and find which combination of these values will result in the highest f1 score.
+Next we will build the Random Forest classifier. Here, we will try different values for three hyperparameters (n_estimators, max_features, and max_depth) and find which combination of these values will result in the highest f1 score.
 
 ```python
 from sklearn.ensemble import RandomForestClassifier
@@ -272,7 +272,7 @@ print('Mean Test Scores:', rf_cv.cv_results_['mean_test_score'])
 The combination of values that resulted in the highest f1 score of 79.7% are max_depth = 16, max_features = log2, and n_estimators = 100. This combination will be used for the hyperparameters of the Random Forest classifier.
 
 ## Gradient Boosting
-Finally, we will build the Gradient Boosting classifier. The hyperparameters that will be tuned for this model are: n_estimators, max_depth, and learning_rate. 
+Finally, we will build the Gradient Boosting classifier. The hyperparameters that will be tuned for this model are n_estimators, max_depth, and learning_rate. 
 
 ```python
 from sklearn.ensemble import GradientBoostingClassifier
