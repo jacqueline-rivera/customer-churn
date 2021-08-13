@@ -303,9 +303,9 @@ Gradient Boosting | _tenure, MonthlyCharges, TotalCharges, InternetService_Fiber
 
 **Features that were chosen across all classifiers: _tenure, Contract_Two year, TotalCharges, InternetService_Fiber optic_, and _MonthlyCharges_.**
 
-**Features that did not appear in any of the chosen optimal models: _gender, SeniorCitizen, Partner, Dependents, PhoneService, PaperlessBilling, MultipleLines_No phone service, MultipleLines_Single Line, InternetService_No internet service, OnlineSecurity_No internet service, OnlineSecurity_Online Security, OnlineBackup_No internet service, OnlineBackup_Online Backup, DeviceProtection_No Device Protection, DeviceProtection_No internet service, TechSupport_No internet service, TechSupport_Tech Support, StreamingTV_Not Streaming TV, StreamingTV_Streaming TV, StreamingMovies_Not Streaming Movies, PaymentMethod_Credit card (automatic)_, and, _PaymentMethod_Mailed check_.**
+Features that did not appear in any of the chosen optimal models: _gender, SeniorCitizen, Partner, Dependents, PhoneService, PaperlessBilling, MultipleLines_No phone service, MultipleLines_Single Line, InternetService_No internet service, OnlineSecurity_No internet service, OnlineSecurity_Online Security, OnlineBackup_No internet service, OnlineBackup_Online Backup, DeviceProtection_No Device Protection, DeviceProtection_No internet service, TechSupport_No internet service, TechSupport_Tech Support, StreamingTV_Not Streaming TV, StreamingTV_Streaming TV, StreamingMovies_Not Streaming Movies, PaymentMethod_Credit card (automatic)_, and _PaymentMethod_Mailed check_.
 
-*It is worth noting that the features that were chosen/not chosen across all classifiers may change depending on the records selected in the oversampling/undersampling step.* 
+*It is worth noting that the features that were chosen/not chosen may change depending on the records selected in the oversampling/undersampling step.* 
 
 # Model Selection
 <!--
