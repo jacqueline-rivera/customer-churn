@@ -324,6 +324,6 @@ The Random Forest classifier performed the best with the highest accuracy and f1
 </p>
 <!--![cm](https://user-images.githubusercontent.com/71897317/129423003-7e2f6aa0-ded4-4cb8-a58d-417dc764525e.png)-->
 
-The accuracy on the test set is 82.32% and the f1 score is 81.27%. We see that that the true label 1, or 'Yes', was incorrectly predicted as 0, or 'No', 103 times. We also see that the true label 0 was incorrectly predicted as 1 144 times.
+The accuracy on the test set is 82.32% and the f1 score is 81.27%. In the confusion matrix above, we see that that the true label '1', or 'Yes', was incorrectly predicted as '0', or 'No', 103 times. We also see that the true label '0' was incorrectly predicted as '1' 144 times.
 
 **Overall, Random Forest Classifier with data that was oversampled and undersampled performed the best with an f1-score of 81% and accuracy of 82%.**
