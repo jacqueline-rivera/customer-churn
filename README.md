@@ -266,13 +266,13 @@ parameters = {
 }
 
 rf_cv = GridSearchCV(estimator=rf, param_grid=parameters, scoring='f1', cv=5)
-rf_cv.fit(X_train, y_train.values.ravel())
+rf_cv.fit(X_train_std, y_train.values.ravel())
 print('Mean Test Scores:', rf_cv.cv_results_['mean_test_score'])
 ```
 The combination of values that resulted in the highest f1 score of 79.7% are max_depth = 16, max_features = log2, and n_estimators = 100. This combination will be used for the hyperparameters of the Random Forest classifier.
 
 ## Gradient Boosting
-Finally, we will build the Gradient Boosting classifier. The hyperparameters that will be tuned for this model are n_estimators, max_depth, and learning_rate. 
+Lastly, we will build the Gradient Boosting classifier. The hyperparameters that will be tuned for this model are n_estimators, max_depth, and learning_rate. 
 
 ```python
 from sklearn.ensemble import GradientBoostingClassifier
@@ -286,12 +286,26 @@ parameters = {
 }
 
 gb_cv = GridSearchCV(estimator=gb, param_grid=parameters, scoring='f1', cv=5)
-gb_cv.fit(X_train, y_train.values.ravel())
+gb_cv.fit(X_train_std, y_train.values.ravel())
 print('Mean Test Scores:', gb_cv.cv_results_['mean_test_score'])
 ```
 The combination of values that resulted in the highest f1 score of 78.2% are n_estimators = 500, max_depth = 8, and learning_rate = 0.01. This combination will be used for the hyperparameters of the Gradient Boosting model.
 
 # Feature Selection
+To find what features are the most relevant for determining customer churn, we can utilize [SelectFromModel](https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SelectFromModel.html) from scikit-learn. This transformer allows us to select features based on importance weights. After running SelectFromModel on each model, these are the features that were selected:
+
+Model | Selected Features
+------|------------------
+Logistic Regression | _tenure, MonthlyCharges, TotalCharges, InternetService_Fiber optic, StreamingMovies_Streaming Movies, Contract_Two year_
+Random Forest | _tenure, MonthlyCharges, TotalCharges, InternetService_Fiber optic, Contract_One year, Contract_Two year, PaymentMethod_Electronic check_
+Gradient Boosting | _tenure, MonthlyCharges, TotalCharges, InternetService_Fiber optic, Contract_One year, Contract_Two year_
+
+
+**Features that were chose across all classifiers: _Contract_Two year, PaymentMethod_Electronic check_, and _SeniorCitizen_.**
+
+**Features that did not appear in any of the chosen optimal models: _Dependents, InternetService_Fiber optic, MultipleLines_No phone service, OnlineBackup_No internet service, OnlineSecurity_No internet service, OnlineSecurity_Online Security, PaymentMethod_Mailed check, TechSupport_No internet service_, and, _gender_.**
+
+*It is worth noting that the features that were chosen/not chosen across all classifiers may change depending on the records selected in the oversampling/undersampling step.* 
 
 # Model Selection
 <!--
@@ -414,11 +428,7 @@ With the Random Forest Classifier model, there is an improvement in the f1-score
 
 It appears that 16 features is the lowest number of features that will result in the highest f1-score. The features are _SeniorCitizen, Partner, PaperlessBilling, MonthlyCharges, TotalCharges, MultipleLines_Single Line, InternetService_No internet service, OnlineBackup_Online Back up, DeviceProtection_No internet service, StreamingTV_Not Streaming TV, StreamingTV_Streaming TV, StreamingMovies_Not Streaming Movies, StreamingMoves_Streaming Movies, Contract_Two year, PaymentMethod_Credit card (automatic)_, and _PaymentMethod_Electronic check_.
 
-**Features that were chose across all classifiers: _Contract_Two year, PaymentMethod_Electronic check_, and _SeniorCitizen_.**
 
-**Features that did not appear in any of the chosen optimal models: _Dependents, InternetService_Fiber optic, MultipleLines_No phone service, OnlineBackup_No internet service, OnlineSecurity_No internet service, OnlineSecurity_Online Security, PaymentMethod_Mailed check, TechSupport_No internet service_, and, _gender_.**
-
-*It is worth noting that the features that were chosen/not chosen across all classifiers may change depending on the records selected in the oversampling/undersampling step.* 
 
 # Model Selection with PyCaret
 For the second goal of this project, PyCaret is employed to train various models, choose the best model, tune the chosen model, and see how it performs. Implementing PyCaret:
