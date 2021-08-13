@@ -31,7 +31,7 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
 * Target Variable:
   * _Churn_ - 'Yes' if customer left the company this quarter, 'No' if not
 
-# Exploratory Data Analysis
+# EDA
 ## Data Types
 Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64. The code below revealed that there are 11 blanks in _TotalCharges_; these blanks are converted to NaN. 
 
@@ -78,12 +78,12 @@ df['TotalCharges'].fillna(df['TotalCharges'].mean(), inplace=True)
 ```
 
 ## Categorical Features
+### Demographics
 
-<!--
+Next we can take a look at the point plots and churn rate breakdown for demographic features: 
 
-Next we can take a look at the churn rate breakdown for demographic features: 
-
-![democharts](https://user-images.githubusercontent.com/71897317/128217083-35d88026-0f7e-4572-b16a-74288fd7ed0a.png)
+![pointplots](https://user-images.githubusercontent.com/71897317/129410000-5ee6b716-4e0e-4a31-ac77-a6827777c8c8.png)
+<!--![democharts](https://user-images.githubusercontent.com/71897317/128217083-35d88026-0f7e-4572-b16a-74288fd7ed0a.png)-->
 
 gender | No | Yes | Churn %
 -------|----|-----|--------
@@ -105,7 +105,15 @@ Dependents | No | Yes | Churn %
 False | 3390 | 1543 | 31.28
 True | 1773 | 326 | 15.53
 
-_gender_ appears to be the only demographic feature where the churn rate for each class are not so different. Customers who are 65 or older are approximately 2.3 times more likely to churn than customers who are not. Customers who do not have a partner are approximately 2 times more likely to churn than customers who do have partners. Customers that do not have dependents are 2.4 times more likely to churn than customers who live with dependents. The churn rate for the rest of the categorical variables are below. For a majority of the features, we can see that the churn rate varies for the categories within the features.
+* _gender_: appears to be the only demographic feature where the churn rate for each class are not so different 
+* _SeniorCitizen_: customers who are 65 or older are approximately 2.3 times more likely to churn than customers who are not 
+* _Partner_: customers who do not have a partner are approximately 2 times more likely to churn than customers who do have partners 
+* _Dependents_: customers that do not have dependents are 2.4 times more likely to churn than customers who live with dependents 
+
+<!--
+
+### Service Options
+The churn rate for the rest of the categorical variables are below. For a majority of the features, we can see that the churn rate varies for the categories within the features.
 
 ![part1](https://user-images.githubusercontent.com/71897317/128215143-270e9a4f-8d9e-486e-b8a5-8f44af84c05b.png)
 
