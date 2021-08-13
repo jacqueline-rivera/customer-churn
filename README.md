@@ -32,7 +32,8 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
   * _Churn_ - 'Yes' if customer left the company this quarter, 'No' if not
 
 # EDA
-Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64. The code below revealed that there are 11 blanks in _TotalCharges_; these blanks were converted to NaN. 
+## Data Types
+Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64. The code below revealed that there are 11 blanks in _TotalCharges_; these blanks are converted to NaN. 
 
 ```python
 # check what is causing the object data type
@@ -43,8 +44,8 @@ print([x for x in df['TotalCharges'] if any(char.isdigit() for char in x) == Fal
 df['TotalCharges'] = df['TotalCharges'].replace(' ', np.nan)
 df['TotalCharges'] = df['TotalCharges'].astype('float64')
 ```
-
-There is an imbalance in the target variable:
+## Target Variable
+There is an imbalance in the target variable that will be addressed after taking a look at the features in the dataset:
 * Customers that did not churn: 5174 or approximately 73%
 * Customers that did churn: 1869 or approximately 27%
 
@@ -52,12 +53,10 @@ There is an imbalance in the target variable:
   <img src="https://user-images.githubusercontent.com/71897317/129407180-597f927c-373b-42b6-bd72-92fba58b6a7c.png"/>
 </p>
 
-<!--![churndistribution](https://user-images.githubusercontent.com/71897317/129407180-597f927c-373b-42b6-bd72-92fba58b6a7c.png)
+<!--![churndistribution](https://user-images.githubusercontent.com/71897317/129407180-597f927c-373b-42b6-bd72-92fba58b6a7c.png)-->
 
-
-<!--
-
-The imbalance will be addressed after taking a look at the other features in the dataset. Below we have the relationship between churn rate and _tenure_. The churn rate is calculated by dividing the number of churns by the total number of customers for each unique value of _tenure_. We see that there is a negative correlation between churn rate and _tenure_. This suggests that the longer a customer has been with the company, the less likely the customer will churn.
+## Numerical Features
+We will examine the numerical features first. Below we have the relationship between churn rate and _tenure_. The churn rate is calculated by dividing the number of churns by the total number of customers for each unique value of _tenure_. We see that there is a negative correlation between churn rate and _tenure_. This suggests that the longer a customer has been with the company, the less likely the customer will churn.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/128102861-5776b9f4-c6bc-403d-b144-9e2c551e2815.png"/>
@@ -307,5 +306,4 @@ Although the f1-score was the metric focused on throughout the project, overall 
 <!--![AUC](https://user-images.githubusercontent.com/71897317/128247063-2bd32b6b-235f-4988-af06-b3d668f18959.png)
 ![AUC_samp](https://user-images.githubusercontent.com/71897317/128246171-01161e49-e222-4f4c-8e68-ed6e0096efdd.png)-->
 
-<!--
 **Overall, Random Forest Classifier with data that was oversampled and undersampled performed the best with an f1-score of 80%.**
