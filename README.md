@@ -122,6 +122,13 @@ We can also look at the relationship between various features by creating a stra
 </p>
 <!--![techsupport-internetservice](https://user-images.githubusercontent.com/71897317/129411733-f5614aef-2865-4451-9ec6-631dad26e132.png)-->
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/71897317/129411919-03b8b950-51a4-41c7-bc06-37f7137eb12f.png"/>
+</p>
+<!--![security-backup](https://user-images.githubusercontent.com/71897317/129411919-03b8b950-51a4-41c7-bc06-37f7137eb12f.png)-->
+
+
+
 <!--
 
 Now we can address the imbalanced target variable. In this dataset there are 5,163 customers that did not churn and 1,869 customers that did churn. We will take two steps to try to overcome the imbalance: 
