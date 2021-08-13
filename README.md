@@ -31,7 +31,7 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
 * Target Variable:
   * _Churn_ - 'Yes' if customer left the company this quarter, 'No' if not
 
-# EDA
+# Exploratory Data Analysis
 ## Data Types
 Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64. The code below revealed that there are 11 blanks in _TotalCharges_; these blanks are converted to NaN. 
 
@@ -64,13 +64,11 @@ We will examine the numerical features first. Below we have the relationship bet
 
 <!--![churnvtenure](https://user-images.githubusercontent.com/71897317/128102861-5776b9f4-c6bc-403d-b144-9e2c551e2815.png)--> 
 
-<!--
-
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/71897317/128102941-f33dcb0f-313a-4a43-8c6f-dab645ffc900.png"/>
+  <img src="https://user-images.githubusercontent.com/71897317/129407964-d845048a-480e-42dd-b58f-96ec369f0b07.png"/>
 </p>
 
-<!--![tenure-monthlycharges-totalcharges](https://user-images.githubusercontent.com/71897317/128102941-f33dcb0f-313a-4a43-8c6f-dab645ffc900.png)-->
+<!--![layeredhist](https://user-images.githubusercontent.com/71897317/129407964-d845048a-480e-42dd-b58f-96ec369f0b07.png)-->
 
 <!--
 
