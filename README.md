@@ -70,7 +70,7 @@ We see that there is a negative correlation between churn rate and _tenure_. Thi
 </p>
 <!--![layeredhist](https://user-images.githubusercontent.com/71897317/129407964-d845048a-480e-42dd-b58f-96ec369f0b07.png)-->
 
-We can see in _MonthlyCharges_ that there is a sharp peak for customers that do not churn at the $20 range, otherwise the distributions for _Churn_='Yes' and _Churn_='No' follow a similar pattern for this feature. The distributions for _TotalCharges_ are both skewed right. 
+We can see in _MonthlyCharges_ that there is a sharp peak for customers that do not churn at the $20 range, otherwise the distributions for _Churn_ = 'Yes' and _Churn_ = 'No' follow a similar pattern for this feature. The distributions for _TotalCharges_ are both skewed right. 
 
 Now that we have analyzed the numerical features, we can fill in missing values for _TotalCharges_:
 ```python
@@ -110,20 +110,27 @@ True | 1773 | 326 | 15.53
 * _Partner_: customers who do not have a partner are approximately 2 times more likely to churn than customers who do have partners 
 * _Dependents_: customers that do not have dependents are 2.4 times more likely to churn than customers who live with dependents 
 
-<!--
-
 ### Service Options
-The churn rate for the rest of the categorical variables are below. For a majority of the features, we can see that the churn rate varies for the categories within the features.
+Below we have the churn rates for the values in the service options features. We can see that the churn rate varies for the categories within the features. For instance, the 'Fiber optic' option in _InternetService_ has a churn rate that is at least 10% higher than the other values for this features. 
 
-![part1](https://user-images.githubusercontent.com/71897317/128215143-270e9a4f-8d9e-486e-b8a5-8f44af84c05b.png)
+![service](https://user-images.githubusercontent.com/71897317/129410555-bc1f50e9-ab94-477e-aaba-c3cfabfbddf2.png)
 
-![part2](https://user-images.githubusercontent.com/71897317/128216307-17c397e1-973b-4f8f-8532-7a7228d81a04.png)
+We can also look at the relationship between various features by creating a stratified contingency table. Here are a few examples:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/71897317/129411733-f5614aef-2865-4451-9ec6-631dad26e132.png"/>
+</p>
+<!--![techsupport-internetservice](https://user-images.githubusercontent.com/71897317/129411733-f5614aef-2865-4451-9ec6-631dad26e132.png)-->
+
+<!--
 
 Now we can address the imbalanced target variable. In this dataset there are 5,163 customers that did not churn and 1,869 customers that did churn. We will take two steps to try to overcome the imbalance: 
 1. Use f1-score to measure the accuracy of the models
 2. Combine random oversampling and random undersampling 
 
 This resulted in a new dataset that consists of 6,968 records with 3,871 customers that did not churn and 3,097 customers that did churn. Information on the f1-score can be found [here](https://deepai.org/machine-learning-glossary-and-terms/f-score). A tutorial for random oversampling and undersampling can be found [here](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/).
+
+<!--
 
 # Feature Selection with scikit-learn
 
