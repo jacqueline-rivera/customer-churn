@@ -30,9 +30,11 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
 
 * Target Variable:
   * _Churn_ - 'Yes' if customer left the company this quarter, 'No' if not
+
 <br />
 <br /> 
 <br />
+
 # 2. EDA
 ## Data Types
 Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64. The code below revealed that there are 11 blanks in _TotalCharges_; these blanks are converted to NaN. 
