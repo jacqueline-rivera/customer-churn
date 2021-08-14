@@ -2,8 +2,8 @@ Customer attrition, or customer churn, is the percentage of customers that stop 
 
 # 1. Data
 
-<details>
- <summary>Click to expand!</summary>
+<details open>
+ <summary>Click to collapse.</summary>
  
 The Telco Customer Churn dataset is utilized in this project and can be found [here](https://www.kaggle.com/blastchar/telco-customer-churn). This dataset contains 7,043 unique records with 21 features:
 * Customer demographic features:
