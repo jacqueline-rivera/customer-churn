@@ -30,9 +30,9 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
 
 * Target Variable:
   * _Churn_ - 'Yes' if customer left the company this quarter, 'No' if not
-
-
-
+ 
+ 
+ 
 # 2. EDA
 ## Data Types
 Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64. The code below revealed that there are 11 blanks in _TotalCharges_; these blanks are converted to NaN. 
@@ -177,9 +177,9 @@ sampling_df['Churn'] = y_co
 ```
 
 This resulted in a new dataset that consists of 6,984 records with 3,880 customers that did not churn and 3,104 customers that did churn. Information on the f1-score can be found [here](https://deepai.org/machine-learning-glossary-and-terms/f-score). A tutorial for random oversampling and undersampling can be found [here](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/).
-
-
-
+ 
+ 
+ 
 # 3. Data Cleaning
 
 Now that we have an overview of the variables in the dataset and have modified the dataset to overcome the imbalanced target feature, we can encode our data. First we split the dataset into X (independent variables) and y (target variable), then we can encode all of the categorical features. We have seven categorical features that are binary and will be encoded using label encoding: _Churn (our y), gender, SeniorCitizen, Partner, Dependents, PhoneService_, and _PaperlessBilling_. The remaining categorical features will be encoded using one-hot-encoding: _MultipleLines, InternetService, OnlineSecurity, OnlineBackup, DeviceProtection, TechSupport, StreamingTV, StreamingMovies, Contract_, and _PaymentMethod_:
@@ -231,9 +231,9 @@ X_val_std = stdsc.transform(X_val)
 X_train_std = pd.DataFrame(X_train_std)
 X_train_std.columns = X_df.columns
 ```
-
-
-
+ 
+ 
+ 
 # 4. Model Building with Scikit-Learn
 
 We are ready to build our models. For this project, we will train Logistic Regression, Random Forest, and Gradient Boosting classifiers and find the optimal hyperparameters for each model using GridSearchCV.
@@ -296,9 +296,9 @@ gb_cv.fit(X_train_std, y_train.values.ravel())
 print('Mean Test Scores:', gb_cv.cv_results_['mean_test_score'])
 ```
 The combination of values that resulted in the highest f1 score of 78.2% are n_estimators = 500, max_depth = 8, and learning_rate = 0.01. This combination will be used for the hyperparameters of the Gradient Boosting model.
-
-
-
+ 
+ 
+ 
 # 5. Feature Selection
 To find what features are the most relevant for determining customer churn, we can utilize [SelectFromModel](https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SelectFromModel.html) from scikit-learn. This transformer allows us to select features based on importance weights. After running SelectFromModel on each model, these are the features that were selected:
 
@@ -314,9 +314,9 @@ Gradient Boosting | _tenure, MonthlyCharges, TotalCharges, InternetService_Fiber
 Features that did not appear in any of the chosen optimal models: _gender, SeniorCitizen, Partner, Dependents, PhoneService, PaperlessBilling, MultipleLines_No phone service, MultipleLines_Single Line, InternetService_No internet service, OnlineSecurity_No internet service, OnlineSecurity_Online Security, OnlineBackup_No internet service, OnlineBackup_Online Backup, DeviceProtection_No Device Protection, DeviceProtection_No internet service, TechSupport_No internet service, TechSupport_Tech Support, StreamingTV_Not Streaming TV, StreamingTV_Streaming TV, StreamingMovies_Not Streaming Movies, PaymentMethod_Credit card (automatic)_, and _PaymentMethod_Mailed check_.
 
 *It is worth noting that the features that were chosen/not chosen may change depending on the records selected in the oversampling/undersampling step.* 
-
-
-
+ 
+ 
+ 
 # 6. Model Selection
 Now that we have built and tuned our models, we can test the models on the validation set and choose the model that performs the best.
 The resulting accuracy and f1 scores are as follows:
