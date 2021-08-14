@@ -1,7 +1,6 @@
-# 1
 Customer attrition, or customer churn, is the percentage of customers that stop using a product within a given time frame. The goals of this project are to identify important features that help determine if a customer will churn and to build a model that will predict if a customer will churn. 
 
-# Data
+# 1. Data
 The Telco Customer Churn dataset is utilized in this project and can be found [here](https://www.kaggle.com/blastchar/telco-customer-churn). This dataset contains 7,043 unique records with 21 features:
 * Customer demographic features:
   * _customerID_
@@ -32,7 +31,7 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
 * Target Variable:
   * _Churn_ - 'Yes' if customer left the company this quarter, 'No' if not
 
-# EDA
+# 2. EDA
 ## Data Types
 Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64. The code below revealed that there are 11 blanks in _TotalCharges_; these blanks are converted to NaN. 
 
@@ -177,7 +176,7 @@ sampling_df['Churn'] = y_co
 
 This resulted in a new dataset that consists of 6,984 records with 3,880 customers that did not churn and 3,104 customers that did churn. Information on the f1-score can be found [here](https://deepai.org/machine-learning-glossary-and-terms/f-score). A tutorial for random oversampling and undersampling can be found [here](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/).
 
-# Data Cleaning
+# 3. Data Cleaning
 
 Now that we have an overview of the variables in the dataset and have modified the dataset to overcome the imbalanced target feature, we can encode our data. First we split the dataset into X (independent variables) and y (target variable), then we can encode all of the categorical features. We have seven categorical features that are binary and will be encoded using label encoding: _Churn (our y), gender, SeniorCitizen, Partner, Dependents, PhoneService_, and _PaperlessBilling_. The remaining categorical features will be encoded using one-hot-encoding: _MultipleLines, InternetService, OnlineSecurity, OnlineBackup, DeviceProtection, TechSupport, StreamingTV, StreamingMovies, Contract_, and _PaymentMethod_:
 
@@ -229,7 +228,7 @@ X_train_std = pd.DataFrame(X_train_std)
 X_train_std.columns = X_df.columns
 ```
 
-# Model Building with Scikit-Learn
+# 4. Model Building with Scikit-Learn
 
 We are ready to build our models. For this project, we will train Logistic Regression, Random Forest, and Gradient Boosting classifiers and find the optimal hyperparameters for each model using GridSearchCV.
 
@@ -292,7 +291,7 @@ print('Mean Test Scores:', gb_cv.cv_results_['mean_test_score'])
 ```
 The combination of values that resulted in the highest f1 score of 78.2% are n_estimators = 500, max_depth = 8, and learning_rate = 0.01. This combination will be used for the hyperparameters of the Gradient Boosting model.
 
-# Feature Selection
+# 5. Feature Selection
 To find what features are the most relevant for determining customer churn, we can utilize [SelectFromModel](https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SelectFromModel.html) from scikit-learn. This transformer allows us to select features based on importance weights. After running SelectFromModel on each model, these are the features that were selected:
 
 Model | Selected Features
@@ -308,7 +307,7 @@ Features that did not appear in any of the chosen optimal models: _gender, Senio
 
 *It is worth noting that the features that were chosen/not chosen may change depending on the records selected in the oversampling/undersampling step.* 
 
-# Model Selection
+# 6. Model Selection
 Now that we have built and tuned our models, we can test the models on the validation set and choose the model that performs the best.
 The resulting accuracy and f1 scores are as follows:
 
