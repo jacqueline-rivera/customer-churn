@@ -33,7 +33,6 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
 
 <br />
 <br /> 
-<br />
 
 # 2. EDA
 ## Data Types
@@ -180,7 +179,8 @@ sampling_df['Churn'] = y_co
 
 This resulted in a new dataset that consists of 6,984 records with 3,880 customers that did not churn and 3,104 customers that did churn. Information on the f1-score can be found [here](https://deepai.org/machine-learning-glossary-and-terms/f-score). A tutorial for random oversampling and undersampling can be found [here](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/).
  
- 
+<br />
+<br />
  
 # 3. Data Cleaning
 
@@ -233,8 +233,9 @@ X_val_std = stdsc.transform(X_val)
 X_train_std = pd.DataFrame(X_train_std)
 X_train_std.columns = X_df.columns
 ```
- 
- 
+
+<br />
+<br />
  
 # 4. Model Building with Scikit-Learn
 
@@ -299,7 +300,8 @@ print('Mean Test Scores:', gb_cv.cv_results_['mean_test_score'])
 ```
 The combination of values that resulted in the highest f1 score of 78.2% are n_estimators = 500, max_depth = 8, and learning_rate = 0.01. This combination will be used for the hyperparameters of the Gradient Boosting model.
  
- 
+<br />
+<br />
  
 # 5. Feature Selection
 To find what features are the most relevant for determining customer churn, we can utilize [SelectFromModel](https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SelectFromModel.html) from scikit-learn. This transformer allows us to select features based on importance weights. After running SelectFromModel on each model, these are the features that were selected:
@@ -317,7 +319,8 @@ Features that did not appear in any of the chosen optimal models: _gender, Senio
 
 *It is worth noting that the features that were chosen/not chosen may change depending on the records selected in the oversampling/undersampling step.* 
  
- 
+<br />
+<br />
  
 # 6. Model Selection
 Now that we have built and tuned our models, we can test the models on the validation set and choose the model that performs the best.
