@@ -1,11 +1,6 @@
 Customer attrition, or customer churn, is the percentage of customers that stop using a product within a given time frame. The goals of this project are to identify important features that help determine if a customer will churn and to build a model that will predict if a customer will churn. 
 
 # 1. Data
-
-<details open>
- <summary>Click to collapse this section.</summary>
-
- <br />
  
 The Telco Customer Churn dataset is utilized in this project and can be found [here](https://www.kaggle.com/blastchar/telco-customer-churn). This dataset contains 7,043 unique records with 21 features:
 * Customer demographic features:
@@ -36,17 +31,11 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
 
 * Target Variable:
   * _Churn_ - 'Yes' if customer left the company this quarter, 'No' if not
-</details>
  
 <br />
 <br /> 
 
 # 2. EDA
-
-<details open>
- <summary>Click to collapse this section.</summary>
-
- <br />
 
 ## Data Types
 Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64. The code below revealed that there are 11 blanks in _TotalCharges_; these blanks are converted to NaN. 
@@ -192,7 +181,6 @@ sampling_df['Churn'] = y_co
 
 This resulted in a new dataset that consists of 6,984 records with 3,880 customers that did not churn and 3,104 customers that did churn. Information on the f1-score can be found [here](https://deepai.org/machine-learning-glossary-and-terms/f-score). A tutorial for random oversampling and undersampling can be found [here](https://machinelearningmastery.com/random-oversampling-and-undersampling-for-imbalanced-classification/).
 
-</details>
 <br />
 <br />
  
