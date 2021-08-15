@@ -6,7 +6,7 @@ Customer attrition, or customer churn, is the percentage of customers that stop 
 
 # 1. Data
 
-<details open markdown="block">
+<details open>
 <summary>Click here to collapse section.</summary>
  
 <p>
@@ -43,6 +43,8 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
  
  </p>
  </details> 
+ 
+ <br />
 
 # 2. EDA
 
@@ -198,7 +200,14 @@ This resulted in a new dataset that consists of 6,984 records with 3,880 custome
  </p>
  </details> 
  
+ <br />
+ 
 # 3. Data Cleaning
+
+<details open>
+<summary>Click here to collapse section.</summary>
+ 
+<p>
 
 Now that we have an overview of the variables in the dataset and have modified the dataset to overcome the imbalanced target feature, we can encode our data. First we split the dataset into X (independent variables) and y (target variable), then we can encode all of the categorical features. We have seven categorical features that are binary and will be encoded using label encoding: _Churn (our y), gender, SeniorCitizen, Partner, Dependents, PhoneService_, and _PaperlessBilling_. The remaining categorical features will be encoded using one-hot-encoding: _MultipleLines, InternetService, OnlineSecurity, OnlineBackup, DeviceProtection, TechSupport, StreamingTV, StreamingMovies, Contract_, and _PaymentMethod_:
 
@@ -250,10 +259,17 @@ X_train_std = pd.DataFrame(X_train_std)
 X_train_std.columns = X_df.columns
 ```
 
-<br />
-<br />
+ </p>
+ </details> 
+ 
+ <br />
  
 # 4. Model Building with Scikit-Learn
+
+<details open>
+<summary>Click here to collapse section.</summary>
+ 
+<p>
 
 We are ready to build our models. For this project, we will train Logistic Regression, Random Forest, and Gradient Boosting classifiers and find the optimal hyperparameters for each model using GridSearchCV.
 
@@ -316,10 +332,18 @@ print('Mean Test Scores:', gb_cv.cv_results_['mean_test_score'])
 ```
 The combination of values that resulted in the highest f1 score of 78.2% are n_estimators = 500, max_depth = 8, and learning_rate = 0.01. This combination will be used for the hyperparameters of the Gradient Boosting model.
  
-<br />
-<br />
+ </p>
+ </details> 
+ 
+ <br />
  
 # 5. Feature Selection
+
+<details open>
+<summary>Click here to collapse section.</summary>
+ 
+<p>
+
 To find what features are the most relevant for determining customer churn, we can utilize [SelectFromModel](https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SelectFromModel.html) from scikit-learn. This transformer allows us to select features based on importance weights. After running SelectFromModel on each model, these are the features that were selected:
 
 Model | Selected Features
@@ -335,10 +359,17 @@ Features that did not appear in any of the chosen optimal models: _gender, Senio
 
 *It is worth noting that the features that were chosen/not chosen may change depending on the records selected in the oversampling/undersampling step.* 
  
-<br />
-<br />
+ </p>
+ </details> 
+ <br />
  
 # 6. Model Selection
+
+<details open>
+<summary>Click here to collapse section.</summary>
+ 
+<p>
+
 Now that we have built and tuned our models, we can test the models on the validation set and choose the model that performs the best.
 The resulting accuracy and f1 scores are as follows:
 
@@ -356,5 +387,9 @@ The Random Forest classifier performed the best with the highest accuracy and f1
 <!--![cm](https://user-images.githubusercontent.com/71897317/129423003-7e2f6aa0-ded4-4cb8-a58d-417dc764525e.png)-->
 
 The accuracy on the test set is 82.32% and the f1 score is 81.27%. In the confusion matrix above, we see that that the true label '1', or 'Yes', was incorrectly predicted as '0', or 'No', 103 times. We also see that the true label '0' was incorrectly predicted as '1' 144 times.
+ 
+  </p>
+ </details> 
+ <br />
 
 **Overall, Random Forest Classifier with data that was oversampled and undersampled performed the best with an f1-score of 81% and accuracy of 82%.**
