@@ -6,7 +6,7 @@ Customer attrition, or customer churn, is the percentage of customers that stop 
 
 # 1. Data
 
-<details open>
+<details open markdown="block">
 <summary>Click here to collapse section.</summary>
  
 <p>
