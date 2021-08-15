@@ -2,7 +2,9 @@
 
 # Overview
 
-Customer churn rate is the percentage of customers that stop using a product within a given time frame. The goals of this project are to identify important features that help determine if a customer will churn and to build a model that will predict if a customer will churn. To achieve these goals, three models were trained and tested: Logistic Regression, Random Forest Classifier, and Gradient Boosting Classifier. The features that were deemed as important across all three classifiers are "tenure", "Contract_Two year", "TotalCharges", "InternetService_Fiber optic", and "MonthlyCharges". The model that had the best performance was the Random Forest Classifier with data that was oversampled and undersampled; this model resulted in an f1-score of 81% and accuracy of 82%.
+Customer churn rate is the percentage of customers that stop using a product within a given time frame. The goals of this project are to identify important features that help determine if a customer will churn and to build a model that will predict if a customer will churn. To achieve these goals, three models were trained and tested: Logistic Regression, Random Forest Classifier, and Gradient Boosting Classifier. 
+
+The features that were deemed as important across all three classifiers are "tenure", "Contract_Two year", "TotalCharges", "InternetService_Fiber optic", and "MonthlyCharges". The model that had the best performance was the Random Forest Classifier with data that was oversampled and undersampled; this model resulted in an f1-score of 81% and accuracy of 82%.
 
 # 1. Data
 
