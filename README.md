@@ -41,7 +41,7 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
 
 # 2. EDA
 
-## a. Data Types
+## Data Types
 Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64. The code below revealed that there are 11 blanks in _TotalCharges_; these blanks are converted to NaN. 
 
 ```python
@@ -54,7 +54,7 @@ df['TotalCharges'] = df['TotalCharges'].replace(' ', np.nan)
 df['TotalCharges'] = df['TotalCharges'].astype('float64')
 ```
 
-## b. Target Variable
+## Target Variable
 There is an imbalance in the target variable that will be addressed after taking a look at the features in the dataset:
 * Customers that did not churn: 5174 or approximately 73%
 * Customers that did churn: 1869 or approximately 27%
@@ -64,7 +64,7 @@ There is an imbalance in the target variable that will be addressed after taking
 </p>
 <!--![churndistribution](https://user-images.githubusercontent.com/71897317/129407180-597f927c-373b-42b6-bd72-92fba58b6a7c.png)-->
 
-## c. Numerical Features
+## Numerical Features
 We will examine the numerical features first. Below we have the relationship between churn rate and _tenure_. The churn rate is calculated by dividing the number of churns by the total number of customers for each unique value of _tenure_. 
 
 <p align="center">
@@ -86,7 +86,7 @@ Now that we have analyzed the numerical features, we can fill in missing values 
 df['TotalCharges'].fillna(df['TotalCharges'].mean(), inplace=True)
 ```
 
-## d. Categorical Features
+## Categorical Features
 ### Demographics
 
 Next we can take a look at the point plots and churn rate breakdown for demographic features: 
@@ -160,7 +160,7 @@ First we have the table for _PaperlessBilling_ and _PaymentMethod_. We can see t
 <!--![contract-payment](https://user-images.githubusercontent.com/71897317/129412499-6d7eaa2f-5a74-44db-80e1-9de685f8361f.png)-->
 
 
-## e. Dealing with Imbalanced Target Variable
+## Dealing with Imbalanced Target Variable
 
 Now we can address the imbalanced target variable. In this dataset there are 5,174 customers that did not churn and 1,869 customers that did churn. We will take two steps to try to overcome the imbalance: 
 1. Use f1-score to measure the accuracy of the models
@@ -247,7 +247,7 @@ X_train_std.columns = X_df.columns
 
 We are ready to build our models. For this project, we will train Logistic Regression, Random Forest, and Gradient Boosting classifiers and find the optimal hyperparameters for each model using GridSearchCV.
 
-## 4a. Logistic Regression
+## Logistic Regression
 First we will build the Logistic Regression model. Using GridSearchCV, we can try different values for the hyperparameter 'C' and check which value gives us the highest f1 score.
 
 ```python
@@ -266,7 +266,7 @@ print('Mean Test Scores:', lr_cv.cv_results_['mean_test_score'])
 ```
 The average f1 results for each value of 'C' are: 74.8%, 75.2%, 75.6%, 75.5%, 75.6%, 75.7%, and 75.7%. Since C=100 has the highest f1 score, this is the hyperparameter that will be used in the Logistic Regression model.
 
-## 4b. Random Forest
+## Random Forest
 Next we will build the Random Forest classifier. Here, we will try different values for three hyperparameters (n_estimators, max_features, and max_depth) and find which combination of these values will result in the highest f1 score.
 
 ```python
@@ -286,7 +286,7 @@ print('Mean Test Scores:', rf_cv.cv_results_['mean_test_score'])
 ```
 The combination of values that resulted in the highest f1 score of 79.7% are max_depth = 16, max_features = log2, and n_estimators = 100. This combination will be used for the hyperparameters of the Random Forest classifier.
 
-## 4c. Gradient Boosting
+## Gradient Boosting
 Lastly, we will build the Gradient Boosting classifier. The hyperparameters that will be tuned for this model are n_estimators, max_depth, and learning_rate. 
 
 ```python
