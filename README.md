@@ -1,3 +1,5 @@
+<br />
+
 # Overview
 
 Customer attrition, or customer churn, is the percentage of customers that stop using a product within a given time frame. The goals of this project are to identify important features that help determine if a customer will churn and to build a model that will predict if a customer will churn. 
@@ -39,7 +41,7 @@ The Telco Customer Churn dataset is utilized in this project and can be found [h
 
 # 2. EDA
 
-## 2a. Data Types
+## a. Data Types
 Checking the data types tells us that the _TotalCharges_ feature is of the object data type instead of float64. The code below revealed that there are 11 blanks in _TotalCharges_; these blanks are converted to NaN. 
 
 ```python
@@ -52,7 +54,7 @@ df['TotalCharges'] = df['TotalCharges'].replace(' ', np.nan)
 df['TotalCharges'] = df['TotalCharges'].astype('float64')
 ```
 
-## 2b. Target Variable
+## b. Target Variable
 There is an imbalance in the target variable that will be addressed after taking a look at the features in the dataset:
 * Customers that did not churn: 5174 or approximately 73%
 * Customers that did churn: 1869 or approximately 27%
@@ -62,7 +64,7 @@ There is an imbalance in the target variable that will be addressed after taking
 </p>
 <!--![churndistribution](https://user-images.githubusercontent.com/71897317/129407180-597f927c-373b-42b6-bd72-92fba58b6a7c.png)-->
 
-## 2c. Numerical Features
+## c. Numerical Features
 We will examine the numerical features first. Below we have the relationship between churn rate and _tenure_. The churn rate is calculated by dividing the number of churns by the total number of customers for each unique value of _tenure_. 
 
 <p align="center">
@@ -84,7 +86,7 @@ Now that we have analyzed the numerical features, we can fill in missing values 
 df['TotalCharges'].fillna(df['TotalCharges'].mean(), inplace=True)
 ```
 
-## 2d. Categorical Features
+## d. Categorical Features
 ### Demographics
 
 Next we can take a look at the point plots and churn rate breakdown for demographic features: 
@@ -158,7 +160,7 @@ First we have the table for _PaperlessBilling_ and _PaymentMethod_. We can see t
 <!--![contract-payment](https://user-images.githubusercontent.com/71897317/129412499-6d7eaa2f-5a74-44db-80e1-9de685f8361f.png)-->
 
 
-## 2e. Dealing with Imbalanced Target Variable
+## e. Dealing with Imbalanced Target Variable
 
 Now we can address the imbalanced target variable. In this dataset there are 5,174 customers that did not churn and 1,869 customers that did churn. We will take two steps to try to overcome the imbalance: 
 1. Use f1-score to measure the accuracy of the models
