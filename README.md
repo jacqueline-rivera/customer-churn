@@ -166,7 +166,7 @@ Again, we can see that the curn rate varies for the categories within the featur
 </p>
 <!--![billing-payment](https://user-images.githubusercontent.com/71897317/129412433-dd3f7327-5d75-408f-b854-f73d83ce5699.png)-->
 
-First we have the table for _PaperlessBilling_ and _PaymentMethod_. We can see that there is an overall pattern of paperless billing leading to higher churn rates. Below we have the table for _Contract_ and _PaymentMethod_. 'Month-to-month' contracts paid with 'Electronic check' have a high churn rate of almost 54% while the same contract paith with a 'Mailed check' has a significantly lower churn rate of 31.58%.
+First we have the table for _PaperlessBilling_ and _PaymentMethod_. We can see that there is an overall pattern of paperless billing leading to higher churn rates. Below we have the table for _Contract_ and _PaymentMethod_. 'Month-to-month' contracts paid with 'Electronic check' have a high churn rate of almost 54% while the same contract paid with a 'Mailed check' has a significantly lower churn rate of 31.58%.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/71897317/129412499-6d7eaa2f-5a74-44db-80e1-9de685f8361f.png"/>
